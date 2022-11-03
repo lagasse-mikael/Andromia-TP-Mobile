@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Creature(
-    val Stats: Stats,
+    val Stats: String,
 
 )
