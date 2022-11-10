@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import com.babileux.andromia.R
 import com.babileux.andromia.databinding.ActivityLoginBinding
+import com.babileux.andromia.presentation.MainActivity
 import com.babileux.andromia.presentation.ui.creation.CreationCompteActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -21,6 +22,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+        binding.btnSkipLogin.setOnClickListener{
+            val intent = MainActivity.newIntent(this)
+            startActivity(intent)
+        }
+
 
         binding.btnConnecter.setOnClickListener {
             
@@ -30,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
                 }
                 false -> {
                     Toast.makeText(this, "Login in", Toast.LENGTH_SHORT).show()
-                    
+
                 }
             }
 
