@@ -7,7 +7,7 @@ data class Explorateur(
     val username:String="",
     val email:String="",
     val password:String="",
-    val inox:Int,
-    val element: List<Element> ,
-    val explorations: List<Exploration>
+    val inox:Int = 0,
+    val element: List<Element> = listOf() ,
+    val explorations: List<Exploration> = listOf()
 )

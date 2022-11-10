@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.babileux.andromia.R
+import com.babileux.andromia.core.Resource
 import com.babileux.andromia.databinding.ActivityLoginBinding
 import com.babileux.andromia.presentation.ui.creation.CreationCompteActivity
 
@@ -20,6 +21,18 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel.explorateurResponse.observe(this) {
+            when (it) {
+                is Resource.Error -> {
+                    Toast.makeText(this, "Mauvaise information", Toast.LENGTH_LONG).show()
+                }
+                is Resource.Success -> {
+                    Toast.makeText(this, "Login in", Toast.LENGTH_LONG).show()
+
+                }
+            }
+        }
+
 
 
         binding.btnConnecter.setOnClickListener {
@@ -30,7 +43,11 @@ class LoginActivity : AppCompatActivity() {
                 }
                 false -> {
                     Toast.makeText(this, "Login in", Toast.LENGTH_SHORT).show()
-                    
+                    viewModel.LogUser(binding.usernameField.text.toString(),
+                        binding.passwordField.text.toString())
+
+
+
                 }
             }
 
