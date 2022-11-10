@@ -9,8 +9,8 @@
     app:cardElevation="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="165dp"
-        android:layout_height="174dp"
+        android:layout_width="209dp"
+        android:layout_height="209dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,22 +19,122 @@
             android:id="@+id/nameCreature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:textColor="#000"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imvCreature"
             tools:text="Creature Name" />
 
         <ImageView
-            android:id="@+id/imvPing"
-            android:layout_width="149dp"
-            android:layout_height="118dp"
+            android:id="@+id/imvCreature"
+            android:layout_width="133dp"
+            android:layout_height="100dp"
             app:layout_constraintBottom_toTopOf="@+id/nameCreature"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.235"
             app:srcCompat="@drawable/testceature" />
+
+        <TextView
+            android:id="@+id/txvAffinityCreature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/nameCreature"
+            app:layout_constraintStart_toStartOf="@+id/nameCreature"
+            app:layout_constraintTop_toBottomOf="@+id/nameCreature"
+            tools:text="AFFINITY" />
+
+        <TextView
+            android:id="@+id/txvValueLife"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/txvLifeCreature"
+            app:layout_constraintEnd_toEndOf="@+id/txvLifeCreature"
+            app:layout_constraintStart_toStartOf="@+id/txvLifeCreature"
+            tools:text="99" />
+
+
+        <TextView
+            android:id="@+id/txvLifeCreature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txvSpeedCreature"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvAffinityCreature"
+            app:layout_constraintVertical_bias="0.838"
+            tools:text="life" />
+
+        <TextView
+            android:id="@+id/txvValuePower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/txvPowerCreature"
+            app:layout_constraintEnd_toEndOf="@+id/txvPowerCreature"
+            app:layout_constraintStart_toStartOf="@+id/txvPowerCreature"
+            tools:text="99" />
+
+        <TextView
+            android:id="@+id/txvPowerCreature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txvShieldCreature"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvSpeedCreature"
+            app:layout_constraintTop_toBottomOf="@+id/txvAffinityCreature"
+            app:layout_constraintVertical_bias="0.838"
+            tools:text="power" />
+
+        <TextView
+            android:id="@+id/txvValueSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            app:layout_constraintBottom_toTopOf="@+id/txvSpeedCreature"
+            app:layout_constraintEnd_toEndOf="@+id/txvSpeedCreature"
+            app:layout_constraintStart_toStartOf="@+id/txvSpeedCreature"
+            tools:text="99" />
+
+        <TextView
+            android:id="@+id/txvSpeedCreature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txvPowerCreature"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvLifeCreature"
+            app:layout_constraintTop_toBottomOf="@+id/txvAffinityCreature"
+            app:layout_constraintVertical_bias="0.838"
+            tools:text="speed" />
+
+        <TextView
+            android:id="@+id/txvShieldValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/txvShieldCreature"
+            app:layout_constraintEnd_toEndOf="@+id/txvShieldCreature"
+            app:layout_constraintStart_toStartOf="@+id/txvShieldCreature"
+            tools:text="99" />
+
+
+        <TextView
+            android:id="@+id/txvShieldCreature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvPowerCreature"
+            app:layout_constraintTop_toBottomOf="@+id/txvAffinityCreature"
+            app:layout_constraintVertical_bias="0.838"
+            tools:text="shield" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
