@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_creature">
+    app:startDestination="@+id/navigation_creatures">
 
     <fragment
-        android:id="@+id/navigation_creature"
+        android:id="@+id/navigation_creatures"
         android:name="com.babileux.andromia.presentation.ui.creatures.CreaturesFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="Creature"
+        tools:layout="@layout/fragment_creatures" />
 
     <fragment
         android:id="@+id/navigation_explorations"
         android:name="com.babileux.andromia.presentation.ui.explorations.ExplorationsFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="Explorations"
+        tools:layout="@layout/fragment_explorations" />
 
     <fragment
-        android:id="@+id/navigation_combat"
-        android:name="com.babileux.andromia.presentation.ui.explorations.ExplorationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_combats"
+        android:name="com.babileux.andromia.presentation.ui.combats.CombatsFragment"
+        android:label="Combats"
+        tools:layout="@layout/fragment_combats" />
 </navigation>
