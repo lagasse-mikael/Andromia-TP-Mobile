@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Andromia"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.ui.LoginActivity"
+            android:name=".presentation.ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +24,12 @@
         </activity>
         <activity
             android:name=".presentation.MainActivity"
+            android:exported="false"
+            android:label="@string/app_name">
+
+        </activity>
+        <activity
+            android:name=".presentation.ui.creation.CreationCompteActivity"
             android:exported="false"
             android:label="@string/app_name">
 
