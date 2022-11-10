@@ -1,4 +1,4 @@
-package com.babileux.andromia.presentation.ui
+package com.babileux.andromia.presentation.ui.login
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
