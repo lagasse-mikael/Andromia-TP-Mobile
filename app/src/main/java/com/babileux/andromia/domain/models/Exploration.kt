@@ -5,7 +5,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Exploration(
     val explorationDate: String="",
-    val explorationId: Int,
     val destination: String,
     val affinity: String,
     val vault : Vault,

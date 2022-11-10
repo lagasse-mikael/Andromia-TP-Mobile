@@ -9,10 +9,11 @@ import com.babileux.andromia.core.LoadingResource
 import com.babileux.andromia.core.Resource
 import com.babileux.andromia.data.repositories.LoginRepository
 import com.babileux.andromia.domain.models.Explorateur
+import com.babileux.andromia.domain.models.Token
 import kotlinx.coroutines.launch
 
 class CreationCompteViewModel(application: Application): AndroidViewModel(application) {
-    private val loginRepository = LoginRepository()
+    private val loginRepository = LoginRepository(application)
 
     private var _newExplorateurResponse = MutableLiveData<Resource<Explorateur>>()
     val newExplorateurResponse : LiveData<Resource<Explorateur>> get() = _newExplorateurResponse
@@ -33,5 +34,11 @@ class CreationCompteViewModel(application: Application): AndroidViewModel(applic
 
          }
 
+    }
+
+    fun save (tokens: Token) {
+        viewModelScope.launch {
+            loginRepository.save(tokens)
+        }
     }
 }

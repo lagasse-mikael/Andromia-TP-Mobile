@@ -25,8 +25,15 @@ class CreationCompteActivity : AppCompatActivity() {
 
         viewModel.newExplorateurResponse.observe(this) {
             when (it) {
-                is Resource.Error -> Toast.makeText(this, "MARCHE PO", Toast.LENGTH_LONG).show()
-                is Resource.Success -> Toast.makeText(this, "Créer", Toast.LENGTH_LONG).show()
+                is Resource.Error -> {
+                    Toast.makeText(this, "MARCHE PO", Toast.LENGTH_LONG).show()
+                }
+                is Resource.Success -> {
+                    Toast.makeText(this, "Créer", Toast.LENGTH_LONG).show()
+                    viewModel.save(it.data!!.tokens)
+                    val mainActivityIntent = MainActivity.newIntent(this)
+                    startActivity(mainActivityIntent)
+                }
             }
         }
 

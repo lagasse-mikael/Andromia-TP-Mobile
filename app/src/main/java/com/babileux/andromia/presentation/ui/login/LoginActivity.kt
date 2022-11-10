@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import com.babileux.andromia.R
 import com.babileux.andromia.core.Resource
 import com.babileux.andromia.databinding.ActivityLoginBinding
+import com.babileux.andromia.presentation.MainActivity
 import com.babileux.andromia.presentation.ui.creation.CreationCompteActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -28,7 +29,9 @@ class LoginActivity : AppCompatActivity() {
                 }
                 is Resource.Success -> {
                     Toast.makeText(this, "Login in", Toast.LENGTH_LONG).show()
-
+                    viewModel.save(it.data!!.tokens)
+                    val mainActivityIntent = MainActivity.newIntent(this)
+                    startActivity(mainActivityIntent)
                 }
             }
         }
@@ -42,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this, "Champs vide", Toast.LENGTH_SHORT).show()
                 }
                 false -> {
-                    Toast.makeText(this, "Login in", Toast.LENGTH_SHORT).show()
+
                     viewModel.LogUser(binding.usernameField.text.toString(),
                         binding.passwordField.text.toString())
 

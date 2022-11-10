@@ -5,9 +5,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Explorateur(
     val username:String="",
-    val email:String="",
     val password:String="",
-    val inox:Int = 0,
-    val element: List<Element> = listOf() ,
-    val explorations: List<Exploration> = listOf()
+    val email:String="",
+    val vault: Vault = Vault(),
+    val explorations: List<Exploration> = listOf(),
+    val tokens: Token = Token()
 )

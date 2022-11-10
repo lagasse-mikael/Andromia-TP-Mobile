@@ -1,5 +1,9 @@
 package com.babileux.andromia.data.repositories
 
+import android.content.Context
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.floatPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
 import com.babileux.andromia.core.Constants
 import com.babileux.andromia.core.Resource
 import com.babileux.andromia.data.datasources.LoginDataSource
@@ -13,8 +17,15 @@ import kotlinx.coroutines.withContext
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import androidx.datastore.preferences.preferencesDataStore
+import com.babileux.andromia.domain.models.Token
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
-class LoginRepository {
+
+val Context.dataStore by preferencesDataStore("userConnected")
+
+class LoginRepository(private val context: Context) {
     private val loginDataSource = LoginDataSource()
 
     suspend fun retrieve(explorateur: Explorateur) : Resource<Explorateur> {
@@ -23,6 +34,21 @@ class LoginRepository {
         } catch(ex: Exception) {
             Resource.Error(ex, ex.message)
         }
+    }
+
+    object PreferencesKeys{
+        val TOKEN = stringPreferencesKey("token")
+        val REFRESHTOKEN = stringPreferencesKey("refreshToken")
+
+    }
+
+    val tokens: Flow<Token> = context.dataStore.data.map{ preferences ->
+        val accessToken = preferences[PreferencesKeys.TOKEN]?: ""
+        val refreshToken = preferences[PreferencesKeys.REFRESHTOKEN]?: ""
+
+
+        Token(accessToken, refreshToken)
+
     }
 
     suspend fun createExplorateur(newExplorateur: Explorateur) : Resource<Explorateur> {
@@ -43,5 +69,14 @@ class LoginRepository {
 
 
         }
+    }
+
+    suspend fun save(tokens: Token) {
+        context.dataStore.edit { preferences ->
+            preferences[PreferencesKeys.TOKEN] = tokens.access_token
+            preferences[PreferencesKeys.REFRESHTOKEN] = tokens.refresh_token
+
+        }
+
     }
 }
