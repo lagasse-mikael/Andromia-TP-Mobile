@@ -9,7 +9,7 @@
     app:cardElevation="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="209dp"
+        android:layout_width="175dp"
         android:layout_height="209dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
