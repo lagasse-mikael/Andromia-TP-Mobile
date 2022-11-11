@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.explorateur.ExplorateurFragment">
-
-
-    ◘
+    >
 
     <TextView
         android:id="@+id/txvUsername"
@@ -54,7 +51,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imvLogo"
         app:layout_constraintTop_toBottomOf="@+id/imvLogo"
-        tools:text="Vault" />
+        android:text="Vault" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvVault"
