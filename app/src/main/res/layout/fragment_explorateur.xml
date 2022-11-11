@@ -6,4 +6,82 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.explorateur.ExplorateurFragment">
 
+
+    ◘
+
+    <TextView
+        android:id="@+id/txvUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="36dp"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imvLogo"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Username" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.508"
+        tools:text="999" />
+
+    <ImageView
+        android:id="@+id/imvLogo"
+        android:layout_width="180dp"
+        android:layout_height="185dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/andromialogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txvVault"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="@+id/imvLogo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imvLogo"
+        app:layout_constraintTop_toBottomOf="@+id/imvLogo"
+        tools:text="Vault" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvVault"
+        android:layout_width="404dp"
+        android:layout_height="425dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvVault"
+        tools:itemCount="5"
+        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/item_element"
+        tools:spanCount="2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="97dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="7dp"
+        android:src="@drawable/inox"
+        app:layout_constraintBottom_toBottomOf="@+id/imvLogo"
+        app:layout_constraintStart_toEndOf="@+id/imvLogo"
+        app:layout_constraintTop_toBottomOf="@+id/txvUsername" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -63,11 +63,11 @@
             android:id="@+id/txvLifeCreature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/txvSpeedCreature"
             app:layout_constraintEnd_toStartOf="@+id/txvSpeedCreature"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txvAffinityCreature"
+            app:layout_constraintTop_toTopOf="@+id/txvSpeedCreature"
             app:layout_constraintVertical_bias="0.838"
             tools:text="life" />
 
@@ -84,11 +84,11 @@
             android:id="@+id/txvPowerCreature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/txvShieldCreature"
             app:layout_constraintEnd_toStartOf="@+id/txvShieldCreature"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvSpeedCreature"
-            app:layout_constraintTop_toBottomOf="@+id/txvAffinityCreature"
+            app:layout_constraintTop_toTopOf="@+id/txvShieldCreature"
             app:layout_constraintVertical_bias="0.838"
             tools:text="power" />
 
@@ -96,7 +96,6 @@
             android:id="@+id/txvValueSpeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
             app:layout_constraintBottom_toTopOf="@+id/txvSpeedCreature"
             app:layout_constraintEnd_toEndOf="@+id/txvSpeedCreature"
             app:layout_constraintStart_toStartOf="@+id/txvSpeedCreature"
@@ -106,11 +105,11 @@
             android:id="@+id/txvSpeedCreature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/txvPowerCreature"
             app:layout_constraintEnd_toStartOf="@+id/txvPowerCreature"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvLifeCreature"
-            app:layout_constraintTop_toBottomOf="@+id/txvAffinityCreature"
+            app:layout_constraintTop_toTopOf="@+id/txvPowerCreature"
             app:layout_constraintVertical_bias="0.838"
             tools:text="speed" />
 
