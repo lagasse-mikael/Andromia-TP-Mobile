@@ -12,6 +12,7 @@ import com.babileux.andromia.data.datasources.LoginDataSource
 import com.babileux.andromia.domain.models.Element
 import com.babileux.andromia.domain.models.Explorateur
 import com.babileux.andromia.domain.models.Token
+import com.babileux.andromia.domain.models.Vault
 import com.github.kittinunf.fuel.core.extensions.jsonBody
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.fuel.json.responseJson
@@ -30,7 +31,14 @@ class ExplorateurRepository {
 
     private val explorateurDataSource = ExplorateurDataSource()
 
-    suspend fun retriveExplorerVault() : Flow<LoadingResource<List<Element>>> {
-        return flow{}
+    suspend fun retriveExplorerVault() : Flow<LoadingResource<Vault>> {
+        return flow{
+            try{
+                emit(LoadingResource.Loading())
+                emit(LoadingResource.Success(explorateurDataSource.retriveExplorerVault()))
+            } catch (ex:Exception) {
+                emit(LoadingResource.Error(ex))
+            }
+        }
     }
 }

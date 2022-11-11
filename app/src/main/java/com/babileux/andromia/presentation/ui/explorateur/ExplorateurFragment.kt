@@ -3,13 +3,17 @@ package com.babileux.andromia.presentation.ui.explorateur
 import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.babileux.andromia.R
+import com.babileux.andromia.core.LoadingResource
 import com.babileux.andromia.databinding.FragmentExplorateurBinding
 import com.babileux.andromia.presentation.adapters.VaultRecyclerViewAdapter
+import com.babileux.andromia.core.notifyAllItemChanged
+
 
 class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
 
@@ -29,6 +33,20 @@ class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
             adapter = vaultRecycleViewAdapter
         }
 
+        viewModel.exploraterVault.observe(viewLifecycleOwner) {
+            when (it) {
+                is LoadingResource.Error -> {
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                }
+                is LoadingResource.Loading -> {
+
+                }
+                is LoadingResource.Success -> {
+                    vaultRecycleViewAdapter.elements = it.data!!.elements
+                    vaultRecycleViewAdapter.notifyAllItemChanged()
+                }
+            }
+        }
     }
 
 
