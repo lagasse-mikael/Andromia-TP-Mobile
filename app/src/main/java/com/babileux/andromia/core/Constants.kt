@@ -6,6 +6,7 @@ object Constants {
         //private const val BASE_API = "https://api.andromia.science" // travail en prod
         const val EXPLORERS = "${BASE_API}/explorers"
         const val LOGIN = "${BASE_API}/explorers/login"
+        const val CREATURES = "${BASE_API}/explorers/creatures"
 
     }
 }
