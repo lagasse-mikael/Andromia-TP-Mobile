@@ -48,14 +48,8 @@ class LoginActivity : AppCompatActivity() {
 
                     viewModel.LogUser(binding.usernameField.text.toString(),
                         binding.passwordField.text.toString())
-
-
-
                 }
             }
-
-
-
         }
 
         binding.btnCreer.setOnClickListener {
@@ -63,7 +57,13 @@ class LoginActivity : AppCompatActivity() {
             startActivity(creationCompteActivityIntent)
             
         }
+
+        binding.btnSkipLogin.setOnClickListener {
+            val intent = MainActivity.newIntent(this)
+            startActivity(intent)
+        }
     }
+
 
 
 
