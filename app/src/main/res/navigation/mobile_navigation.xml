@@ -15,7 +15,7 @@
         android:id="@+id/navigation_explorations"
         android:name="com.babileux.andromia.presentation.ui.explorations.ExplorationsFragment"
         android:label="Explorations"
-        tools:layout="@layout/fragment_explorations" />
+        tools:layout="@layout/fragment_list_explorations" />
 
     <fragment
         android:id="@+id/navigation_explorateur"
