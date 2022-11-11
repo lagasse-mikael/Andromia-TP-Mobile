@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_explorateur"
-        android:name="com.babileux.andromia.presentation.ui.combats.CombatsFragment"
+        android:name="com.babileux.andromia.presentation.ui.explorateur.ExplorateurFragment"
         android:label="Profil"
         tools:layout="@layout/fragment_explorateur" />
 </navigation>

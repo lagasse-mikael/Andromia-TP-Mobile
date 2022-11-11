@@ -44,10 +44,7 @@ class LoginRepository(private val context: Context) {
     val tokens: Flow<Token> = context.dataStore.data.map{ preferences ->
         val accessToken = preferences[PreferencesKeys.TOKEN]?: ""
         val refreshToken = preferences[PreferencesKeys.REFRESHTOKEN]?: ""
-
-
         Token(accessToken, refreshToken)
-
     }
 
     suspend fun createExplorateur(newExplorateur: Explorateur) : Resource<Explorateur> {
@@ -55,8 +52,6 @@ class LoginRepository(private val context: Context) {
 
             val body = Json.encodeToString(newExplorateur)
             val (_, _, result) = Constants.BaseURL.EXPLORERS.httpPost().jsonBody(body).responseJson()
-
-
             when(result) {
                 is Result.Success -> {
                     return@withContext Resource.Success(Json.decodeFromString<Explorateur>(result.value.content))
@@ -65,8 +60,6 @@ class LoginRepository(private val context: Context) {
                     return@withContext Resource.Error(result.error.exception)
                 }
             }
-
-
         }
     }
 
@@ -74,8 +67,6 @@ class LoginRepository(private val context: Context) {
         context.dataStore.edit { preferences ->
             preferences[PreferencesKeys.TOKEN] = tokens.access_token
             preferences[PreferencesKeys.REFRESHTOKEN] = tokens.refresh_token
-
         }
-
     }
 }
