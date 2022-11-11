@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_explorations" />
 
     <fragment
-        android:id="@+id/navigation_combats"
+        android:id="@+id/navigation_explorateur"
         android:name="com.babileux.andromia.presentation.ui.combats.CombatsFragment"
-        android:label="Combats"
-        tools:layout="@layout/fragment_combats" />
+        android:label="Profil"
+        tools:layout="@layout/fragment_explorateur" />
 </navigation>
