@@ -12,60 +12,391 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="200dp">
 
 
         <TextView
             android:id="@+id/txvExploDestination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:textColor="#000"
             android:textSize="19sp"
+            app:layout_constraintEnd_toStartOf="@+id/chipPriority"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/chipPriority"
-            app:layout_constraintBottom_toTopOf="@id/txvExploDDate"
             tools:text="DESTINATION" />
 
         <TextView
             android:id="@+id/txvExploDDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="42dp"
             android:textColor="#000"
             android:textSize="11sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/chipPriority"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txvExploDestination"
-            app:layout_constraintVertical_bias="0.956"
+            app:layout_constraintTop_toBottomOf="@+id/txvExploDestination"
             tools:text="EXPLORATIONDATE" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipPriority"
             android:layout_width="100dp"
             android:layout_height="40dp"
+            android:layout_marginTop="8dp"
             android:text="AFFINITY"
             android:textAlignment="center"
-            android:textSize="12sp"
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txvExploDestination"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/networkStatus"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/networkStatus"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="CREATURE"
             android:textAlignment="center"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintStart_toEndOf="@+id/txvExploDestination"
-            app:layout_constraintTop_toBottomOf="@+id/chipPriority"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/elementA"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvExploDDate"
+            app:srcCompat="@drawable/a" />
+
+        <ImageView
+            android:id="@+id/elementB"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@+id/elementA"
+            app:layout_constraintTop_toTopOf="@+id/elementA"
+            app:srcCompat="@drawable/b" />
+
+        <ImageView
+            android:id="@+id/elementE"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@+id/elementB"
+            app:layout_constraintTop_toTopOf="@+id/elementB"
+            app:srcCompat="@drawable/e" />
+
+        <ImageView
+            android:id="@+id/elementEx"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@+id/elementE"
+            app:layout_constraintTop_toTopOf="@+id/elementE"
+            app:srcCompat="@drawable/ex" />
+
+        <ImageView
+            android:id="@+id/elementFr"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@+id/elementEx"
+            app:layout_constraintTop_toTopOf="@+id/elementEx"
+            app:srcCompat="@drawable/fr" />
+
+        <ImageView
+            android:id="@+id/elementG"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@+id/elementFr"
+            app:layout_constraintTop_toTopOf="@+id/elementFr"
+            app:srcCompat="@drawable/g" />
+
+        <ImageView
+            android:id="@+id/elementI"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@+id/elementG"
+            app:layout_constraintTop_toTopOf="@+id/elementG"
+            app:srcCompat="@drawable/i" />
+
+        <ImageView
+            android:id="@+id/elementJa"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@+id/elementI"
+            app:layout_constraintTop_toTopOf="@+id/elementI"
+            app:srcCompat="@drawable/ja" />
+
+        <ImageView
+            android:id="@+id/elementK"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@+id/elementJa"
+            app:layout_constraintTop_toTopOf="@+id/elementJa"
+            app:srcCompat="@drawable/k" />
+
+        <TextView
+            android:id="@+id/textViewA"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/elementA" />
+
+        <TextView
+            android:id="@+id/textViewB"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/textViewA"
+            app:layout_constraintTop_toBottomOf="@+id/elementB" />
+
+        <TextView
+            android:id="@+id/textViewE"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/textViewB"
+            app:layout_constraintTop_toBottomOf="@+id/elementE" />
+
+        <TextView
+            android:id="@+id/textViewEx"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/textViewE"
+            app:layout_constraintTop_toBottomOf="@+id/elementEx" />
+
+        <TextView
+            android:id="@+id/textViewFr"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/textViewEx"
+            app:layout_constraintTop_toBottomOf="@+id/elementFr" />
+
+        <TextView
+            android:id="@+id/textViewG"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/textViewFr"
+            app:layout_constraintTop_toBottomOf="@+id/elementG" />
+
+        <TextView
+            android:id="@+id/textViewI"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/textViewG"
+            app:layout_constraintTop_toBottomOf="@+id/elementI" />
+
+        <TextView
+            android:id="@+id/textViewJa"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/textViewI"
+            app:layout_constraintTop_toBottomOf="@+id/elementJa" />
+
+        <TextView
+            android:id="@+id/textViewK"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/textViewJa"
+            app:layout_constraintTop_toBottomOf="@+id/elementK" />
+
+        <ImageView
+            android:id="@+id/elementL"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewA"
+            app:srcCompat="@drawable/l" />
+
+        <ImageView
+            android:id="@+id/elementNo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toEndOf="@+id/elementL"
+            app:layout_constraintTop_toBottomOf="@+id/textViewA"
+            app:srcCompat="@drawable/no" />
+
+        <ImageView
+            android:id="@+id/elementQ"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toEndOf="@+id/elementNo"
+            app:layout_constraintTop_toBottomOf="@+id/textViewB"
+            app:srcCompat="@drawable/q" />
+
+        <ImageView
+            android:id="@+id/elementSm"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toEndOf="@+id/elementQ"
+            app:layout_constraintTop_toBottomOf="@+id/textViewE"
+            app:srcCompat="@drawable/sm" />
+
+        <ImageView
+            android:id="@+id/elementVe"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toEndOf="@+id/elementSm"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEx"
+            app:srcCompat="@drawable/ve" />
+
+        <ImageView
+            android:id="@+id/elementWu"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toEndOf="@+id/elementVe"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFr"
+            app:srcCompat="@drawable/wu" />
+
+        <ImageView
+            android:id="@+id/elementXu"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toEndOf="@+id/elementWu"
+            app:layout_constraintTop_toBottomOf="@+id/textViewG"
+            app:srcCompat="@drawable/xu" />
+
+        <ImageView
+            android:id="@+id/elementYe"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toEndOf="@+id/elementXu"
+            app:layout_constraintTop_toBottomOf="@+id/textViewI"
+            app:srcCompat="@drawable/ye" />
+
+        <ImageView
+            android:id="@+id/elementZ"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toEndOf="@+id/elementYe"
+            app:layout_constraintTop_toBottomOf="@+id/textViewJa"
+            app:srcCompat="@drawable/z" />
+
+        <TextView
+            android:id="@+id/textViewL"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewNo"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewNo"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewQ"
+            app:layout_constraintStart_toEndOf="@+id/textViewL" />
+
+        <TextView
+            android:id="@+id/textViewQ"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewSm"
+            app:layout_constraintStart_toEndOf="@+id/textViewNo" />
+
+        <TextView
+            android:id="@+id/textViewSm"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewVe"
+            app:layout_constraintStart_toEndOf="@+id/textViewQ" />
+
+        <TextView
+            android:id="@+id/textViewVe"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewWu"
+            app:layout_constraintStart_toEndOf="@+id/textViewSm" />
+
+        <TextView
+            android:id="@+id/textViewWu"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewXu"
+            app:layout_constraintStart_toEndOf="@+id/textViewVe" />
+
+        <TextView
+            android:id="@+id/textViewXu"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewYe"
+            app:layout_constraintStart_toEndOf="@+id/textViewWu" />
+
+        <TextView
+            android:id="@+id/textViewYe"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewZ"
+            app:layout_constraintStart_toEndOf="@+id/textViewXu" />
+
+        <TextView
+            android:id="@+id/textViewZ"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="10dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewYe" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
