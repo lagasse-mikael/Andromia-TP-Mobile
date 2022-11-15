@@ -38,7 +38,6 @@ class LoginRepository(private val context: Context) {
     object PreferencesKeys{
         val TOKEN = stringPreferencesKey("token")
         val REFRESHTOKEN = stringPreferencesKey("refreshToken")
-
     }
 
     val tokens: Flow<Token> = context.dataStore.data.map{ preferences ->

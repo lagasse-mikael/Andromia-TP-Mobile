@@ -45,7 +45,6 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this, "Champs vide", Toast.LENGTH_SHORT).show()
                 }
                 false -> {
-
                     viewModel.LogUser(binding.usernameField.text.toString(),
                         binding.passwordField.text.toString())
                 }

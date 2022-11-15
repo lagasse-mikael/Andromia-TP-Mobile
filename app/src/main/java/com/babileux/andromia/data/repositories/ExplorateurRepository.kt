@@ -31,11 +31,11 @@ class ExplorateurRepository {
 
     private val explorateurDataSource = ExplorateurDataSource()
 
-    suspend fun retriveExplorerVault() : Flow<LoadingResource<Vault>> {
+    suspend fun retriveExplorerVault(accessToken: String) : Flow<LoadingResource<Vault>> {
         return flow{
             try{
                 emit(LoadingResource.Loading())
-                emit(LoadingResource.Success(explorateurDataSource.retriveExplorerVault()))
+                emit(LoadingResource.Success(explorateurDataSource.retriveExplorerVault(accessToken)))
             } catch (ex:Exception) {
                 emit(LoadingResource.Error(ex))
             }
