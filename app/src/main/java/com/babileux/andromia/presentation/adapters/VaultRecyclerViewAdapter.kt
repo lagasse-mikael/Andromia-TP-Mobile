@@ -1,5 +1,6 @@
 package com.babileux.andromia.presentation.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +22,8 @@ class VaultRecyclerViewAdapter(var elements: List<Element>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        val element = elements[position]
+        holder.bind(element)
     }
     override fun getItemCount() = elements.size
 
@@ -30,8 +32,10 @@ class VaultRecyclerViewAdapter(var elements: List<Element>)
 
 
         fun bind(element: Element) {
-            binding.txvElementName.text = element.name
-            binding.txvQuantityElement.text = binding.root.context.getString(element.quantity)
+            Log.d("test", element.toString())
+
+            binding.txvElementName.text = element.element
+            binding.txvQuantityElement.text = element.quantity.toString()
             //TODO: GLIDE POUR LIMAGE
         }
     }

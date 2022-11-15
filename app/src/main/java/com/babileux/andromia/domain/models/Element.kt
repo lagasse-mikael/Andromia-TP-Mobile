@@ -4,7 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Element(
-    val name:String="",
-    val symbol:String="",
+    val element:String="",
     val quantity:Int
 )
