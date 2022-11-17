@@ -31,11 +31,11 @@ class CreatureRepository {
 
     private val creatureDataSource = CreatureDataSource()
 
-    suspend fun retrieveCreatureExplorer(accessToken: String) : Flow<LoadingResource<Creature>> {
+    suspend fun retrieveCreatureExplorer(accessToken: String) : Flow<LoadingResource<List<Creature>>> {
         return flow{
             try{
                 emit(LoadingResource.Loading())
-                //emit(LoadingResource.Success(creatureDataSource.retrieveCreatureExplorer(accessToken)))
+                emit(LoadingResource.Success(creatureDataSource.retrieveCreatureExplorer(accessToken)))
             } catch (ex:Exception) {
                 emit(LoadingResource.Error(ex))
             }
