@@ -9,4 +9,8 @@
     <string name="explorations">Explorations</string>
     <string name="combats">Combats</string>
     <string name="elements">Éléments</string>
+    <string name="life">life</string>
+    <string name="power">Power</string>
+    <string name="speed">Speed</string>
+    <string name="shield">Shield</string>
 </resources>

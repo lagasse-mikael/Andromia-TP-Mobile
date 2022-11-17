@@ -9,11 +9,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.babileux.andromia.R
 import com.babileux.andromia.core.LoadingResource
 import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.FragmentListCreaturesBinding
+import com.babileux.andromia.domain.models.Creature
 import com.babileux.andromia.presentation.adapters.CreatureRecyclerViewAdapter
 
 
@@ -29,7 +31,7 @@ class CreaturesFragment : Fragment(R.layout.fragment_list_creatures) {
         ctlMainActivity = requireActivity().findViewById(R.id.ctlMainActivity)
 
         binding.rcvCreature.apply {
-            layoutManager = GridLayoutManager(requireContext(), 2)
+            layoutManager = GridLayoutManager(requireContext(), 1)
             adapter = creatureRecycleViewAdapter
         }
 
