@@ -5,5 +5,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Element(
     val element:String="",
-    val quantity:Int
+    val quantity:Int = 0
 )
