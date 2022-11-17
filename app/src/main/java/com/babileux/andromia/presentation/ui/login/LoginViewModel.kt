@@ -25,9 +25,7 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
 
         viewModelScope.launch {
             val explorateur = Explorateur(username, password)
-
             _explorateurResponse.value = loginRepository.retrieve(explorateur)
-
         }
 
     }
