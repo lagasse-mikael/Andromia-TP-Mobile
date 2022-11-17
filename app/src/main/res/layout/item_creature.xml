@@ -2,14 +2,14 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
     android:layout_margin="20dp"
     app:cardElevation="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="175dp"
+        android:layout_width="match_parent"
         android:layout_height="209dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,91 +49,233 @@
             app:layout_constraintTop_toBottomOf="@+id/nameCreature"
             tools:text="AFFINITY" />
 
-        <TextView
-            android:id="@+id/txvValueLife"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/txvLifeCreature"
-            app:layout_constraintEnd_toEndOf="@+id/txvLifeCreature"
-            app:layout_constraintStart_toStartOf="@+id/txvLifeCreature"
-            tools:text="99" />
-
 
         <TextView
             android:id="@+id/txvLifeCreature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/txvSpeedCreature"
-            app:layout_constraintEnd_toStartOf="@+id/txvSpeedCreature"
+            android:text="@string/life"
+            app:layout_constraintBottom_toTopOf="@+id/txvShieldCreature"
+            app:layout_constraintEnd_toStartOf="@+id/txvValueLife"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/txvSpeedCreature"
-            app:layout_constraintVertical_bias="0.838"
-            tools:text="life" />
+            app:layout_constraintStart_toEndOf="@+id/imvCreature"
+            app:layout_constraintTop_toTopOf="@+id/imvCreature" />
 
-        <TextView
-            android:id="@+id/txvValuePower"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/txvPowerCreature"
-            app:layout_constraintEnd_toEndOf="@+id/txvPowerCreature"
-            app:layout_constraintStart_toStartOf="@+id/txvPowerCreature"
-            tools:text="99" />
 
         <TextView
             android:id="@+id/txvPowerCreature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/txvShieldCreature"
-            app:layout_constraintEnd_toStartOf="@+id/txvShieldCreature"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/txvSpeedCreature"
-            app:layout_constraintTop_toTopOf="@+id/txvShieldCreature"
-            app:layout_constraintVertical_bias="0.838"
-            tools:text="power" />
+            android:text="@string/power"
+            app:layout_constraintBottom_toTopOf="@+id/txvSpeedCreature"
+            app:layout_constraintEnd_toEndOf="@+id/txvLifeCreature"
+            app:layout_constraintStart_toStartOf="@+id/txvLifeCreature"
+            app:layout_constraintTop_toBottomOf="@+id/txvShieldCreature" />
 
         <TextView
             android:id="@+id/txvValueSpeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/txvSpeedCreature"
-            app:layout_constraintEnd_toEndOf="@+id/txvSpeedCreature"
-            app:layout_constraintStart_toStartOf="@+id/txvSpeedCreature"
+            app:layout_constraintBottom_toBottomOf="@+id/txvSpeedCreature"
+            app:layout_constraintEnd_toEndOf="@+id/txvValuePower"
+            app:layout_constraintStart_toStartOf="@+id/txvValuePower"
+            app:layout_constraintTop_toBottomOf="@+id/txvValuePower"
+            tools:text="99" />
+
+        <TextView
+            android:id="@+id/txvValueLife"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/txvShieldValue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvLifeCreature"
+            app:layout_constraintTop_toTopOf="@+id/txvLifeCreature"
+            tools:text="99" />
+
+        <TextView
+            android:id="@+id/txvShieldValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/txvValuePower"
+            app:layout_constraintEnd_toEndOf="@+id/txvValueLife"
+            app:layout_constraintStart_toStartOf="@+id/txvValueLife"
+            app:layout_constraintTop_toBottomOf="@+id/txvValueLife"
+            tools:text="99" />
+
+        <TextView
+            android:id="@+id/txvValuePower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/txvValueSpeed"
+            app:layout_constraintEnd_toEndOf="@+id/txvShieldValue"
+            app:layout_constraintStart_toStartOf="@+id/txvShieldValue"
+            app:layout_constraintTop_toBottomOf="@+id/txvShieldValue"
             tools:text="99" />
 
         <TextView
             android:id="@+id/txvSpeedCreature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/txvPowerCreature"
-            app:layout_constraintEnd_toStartOf="@+id/txvPowerCreature"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/txvLifeCreature"
-            app:layout_constraintTop_toTopOf="@+id/txvPowerCreature"
-            app:layout_constraintVertical_bias="0.838"
-            tools:text="speed" />
-
-        <TextView
-            android:id="@+id/txvShieldValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/txvShieldCreature"
-            app:layout_constraintEnd_toEndOf="@+id/txvShieldCreature"
-            app:layout_constraintStart_toStartOf="@+id/txvShieldCreature"
-            tools:text="99" />
-
+            android:text="@string/speed"
+            app:layout_constraintBottom_toBottomOf="@+id/imvCreature"
+            app:layout_constraintEnd_toEndOf="@+id/txvLifeCreature"
+            app:layout_constraintStart_toStartOf="@+id/txvLifeCreature"
+            app:layout_constraintTop_toBottomOf="@+id/txvPowerCreature" />
 
         <TextView
             android:id="@+id/txvShieldCreature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/shield"
+            app:layout_constraintBottom_toTopOf="@+id/txvPowerCreature"
+            app:layout_constraintEnd_toEndOf="@+id/txvLifeCreature"
+            app:layout_constraintStart_toStartOf="@+id/txvLifeCreature"
+            app:layout_constraintTop_toBottomOf="@+id/txvLifeCreature" />
+
+        <TextView
+            android:id="@+id/txvHashStart"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:text="aa"
+            app:layout_constraintEnd_toStartOf="@+id/txvHashFirst"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+
+        <TextView
+            android:id="@+id/txvHashFirst"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/purple_200"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/txvHashSecond"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+
+        <TextView
+            android:id="@+id/txvHashSecond"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/purple_200"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/txvHashThird"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvHashFirst"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+
+        <TextView
+            android:id="@+id/txvHashThird"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/purple_200"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/txvHashFourth"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvHashSecond"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+
+        <TextView
+            android:id="@+id/txvHashFourth"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/purple_200"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/txvHashFifth"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvHashThird"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+
+        <TextView
+            android:id="@+id/txvHashFifth"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/purple_200"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/txvHashSixth"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvHashFourth"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+
+        <TextView
+            android:id="@+id/txvHashSixth"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/purple_200"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/txvHashSeventh"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvHashFifth"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+
+        <TextView
+            android:id="@+id/txvHashSeventh"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/purple_200"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/txvHashEight"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvHashSixth"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+
+        <TextView
+            android:id="@+id/txvHashEight"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/purple_200"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/txvHashNinth"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvHashSeventh"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+
+        <TextView
+            android:id="@+id/txvHashNinth"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/purple_200"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/txvHashTenth"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvHashEight"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+
+        <TextView
+            android:id="@+id/txvHashTenth"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/purple_200"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/txvPowerCreature"
-            app:layout_constraintTop_toBottomOf="@+id/txvAffinityCreature"
-            app:layout_constraintVertical_bias="0.838"
-            tools:text="shield" />
+            app:layout_constraintStart_toEndOf="@+id/txvHashNinth"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+
+        <TextView
+            android:id="@+id/txvHashEnd"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:text="aa"
+            android:textAlignment="center"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txvHashTenth"
+            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

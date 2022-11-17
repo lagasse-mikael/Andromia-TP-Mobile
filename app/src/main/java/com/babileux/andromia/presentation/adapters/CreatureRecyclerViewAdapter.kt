@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide
 
 
 class CreatureRecyclerViewAdapter(
-    var creatures: List<Creature> = listOf(), ) : RecyclerView.Adapter<CreatureRecyclerViewAdapter.ViewHolder>()
+    var creatures: List<Creature> = listOf()) : RecyclerView.Adapter<CreatureRecyclerViewAdapter.ViewHolder>()
 {
 
 
@@ -26,6 +26,7 @@ class CreatureRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val sauce = creatures[position]
         holder.bind(sauce)
+
     }
 
     override fun getItemCount() = creatures.size
@@ -38,10 +39,10 @@ class CreatureRecyclerViewAdapter(
             with(binding){
                 nameCreature.text = creature.name
                 txvAffinityCreature.text = creature.affinity
-                txvLifeCreature.text = creature.stats.life.toString()
-                txvPowerCreature.text = creature.stats.power.toString()
-                txvShieldCreature.text = creature.stats.shield.toString()
-                txvSpeedCreature.text = creature.stats.speed.toString()
+                txvValueLife.text = creature.stats.life.toString()
+                txvValuePower.text = creature.stats.power.toString()
+                txvShieldValue.text = creature.stats.shield.toString()
+                txvValueSpeed.text = creature.stats.speed.toString()
                 Glide.with(root.context)
                     .load(creature.asset)
                     .into(imvCreature)
