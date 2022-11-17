@@ -7,6 +7,7 @@ import com.babileux.andromia.data.repositories.ExplorateurRepository
 import com.babileux.andromia.data.repositories.LoginRepository
 import com.babileux.andromia.domain.models.Element
 import com.babileux.andromia.domain.models.Explorateur
+import com.babileux.andromia.domain.models.UserConnected
 import com.babileux.andromia.domain.models.Vault
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
@@ -20,13 +21,14 @@ class ExplorateurViewModel (application: Application): AndroidViewModel(applicat
     private val _exploraterVault = MutableLiveData<LoadingResource<Vault>>()
     val exploraterVault: LiveData<LoadingResource<Vault>> get() = _exploraterVault
 
-    private val _userConnected = MutableLiveData<String>()
-    val userConnected: LiveData<String> get() = _userConnected
+    private val _userConnected = MutableLiveData<UserConnected>()
+    val userConnected: LiveData<UserConnected> get() = _userConnected
 
     init {
         viewModelScope.launch {
-           val tokens =  loginRepository.userConnected.first()
-            explorateurRepository.retriveExplorerVault(tokens.access_token).collect{
+           val user =  loginRepository.userConnected.first()
+            _userConnected.value = user
+            explorateurRepository.retriveExplorerVault(user.access_token).collect{
                 _exploraterVault.value = it
             }
         }

@@ -35,7 +35,10 @@ class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
             adapter = vaultRecycleViewAdapter
         }
 
-
+        viewModel.userConnected.observe(viewLifecycleOwner) {
+            binding.txvUsername.text = it.username
+            binding.txvInox.text = it.nbInox.toString()
+        }
 
 
 
