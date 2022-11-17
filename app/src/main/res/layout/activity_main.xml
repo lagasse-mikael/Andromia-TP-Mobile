@@ -4,7 +4,7 @@
     android:id="@+id/ctlMainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize">
+   >
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnvNavigation"
@@ -24,7 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/bnvNavigation"
+        app:layout_constraintBottom_toTopOf="@+id/bnvNavigation"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"

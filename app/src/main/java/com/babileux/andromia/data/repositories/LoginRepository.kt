@@ -2,6 +2,7 @@ package com.babileux.andromia.data.repositories
 
 import android.content.Context
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.babileux.andromia.core.Constants
@@ -38,6 +39,8 @@ class LoginRepository(private val context: Context) {
     object PreferencesKeys{
         val TOKEN = stringPreferencesKey("token")
         val REFRESHTOKEN = stringPreferencesKey("refreshToken")
+        val USERNAME =  stringPreferencesKey("username")
+        val NBINOX =  intPreferencesKey("inox")
     }
 
     val tokens: Flow<Token> = context.dataStore.data.map{ preferences ->
@@ -62,10 +65,13 @@ class LoginRepository(private val context: Context) {
         }
     }
 
-    suspend fun save(tokens: Token) {
+    suspend fun save(tokens: Token, username:String , nbInox:Int) {
         context.dataStore.edit { preferences ->
             preferences[PreferencesKeys.TOKEN] = tokens.access_token
             preferences[PreferencesKeys.REFRESHTOKEN] = tokens.refresh_token
+            preferences[PreferencesKeys.USERNAME] = username
+            preferences[PreferencesKeys.NBINOX] = nbInox
+
         }
     }
 }

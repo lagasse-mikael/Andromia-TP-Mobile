@@ -30,9 +30,9 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
 
     }
 
-    fun save (tokens: Token) {
+    fun save (tokens: Token, username:String, nbInox: Int) {
         viewModelScope.launch {
-            loginRepository.save(tokens)
+            loginRepository.save(tokens, username, nbInox)
         }
     }
 }

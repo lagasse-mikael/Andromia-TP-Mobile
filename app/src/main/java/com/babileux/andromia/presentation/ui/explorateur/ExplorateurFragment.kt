@@ -33,6 +33,9 @@ class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
             adapter = vaultRecycleViewAdapter
         }
 
+
+
+
         viewModel.exploraterVault.observe(viewLifecycleOwner) {
             when (it) {
                 is LoadingResource.Error -> {

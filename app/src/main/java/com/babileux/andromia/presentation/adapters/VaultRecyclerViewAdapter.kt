@@ -1,5 +1,6 @@
 package com.babileux.andromia.presentation.adapters
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -32,10 +33,16 @@ class VaultRecyclerViewAdapter(var elements: List<Element>)
         private val binding = ItemElementBinding.bind(view)
 
 
+        @SuppressLint("DiscouragedApi")
         fun bind(element: Element) {
+            val imgRes = "element_${element.element}"
+            val ressourceId = binding.root.resources.getIdentifier(imgRes.lowercase(), "drawable", binding.root.context.packageName)
 
             binding.txvElementName.text = element.element
             binding.txvQuantityElement.text = element.quantity.toString()
+            binding.imvElementLogo.setImageResource(ressourceId)
+
+
             //TODO: GLIDE POUR LIMAGE
 
             // Exemple de glide
