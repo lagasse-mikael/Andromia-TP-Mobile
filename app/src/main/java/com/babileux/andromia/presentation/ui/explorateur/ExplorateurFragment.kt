@@ -13,6 +13,7 @@ import com.babileux.andromia.core.LoadingResource
 import com.babileux.andromia.databinding.FragmentExplorateurBinding
 import com.babileux.andromia.presentation.adapters.VaultRecyclerViewAdapter
 import com.babileux.andromia.core.notifyAllItemChanged
+import com.babileux.andromia.data.repositories.LoginRepository
 
 
 class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
@@ -20,6 +21,7 @@ class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
     private val binding: FragmentExplorateurBinding by viewBinding()
     private val viewModel: ExplorateurViewModel by viewModels()
     private val vaultRecycleViewAdapter = VaultRecyclerViewAdapter(listOf())
+
 
     private lateinit var ctlMainActivity: ConstraintLayout //ctl = constraintLayoout
 
@@ -32,6 +34,7 @@ class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = vaultRecycleViewAdapter
         }
+
 
 
 

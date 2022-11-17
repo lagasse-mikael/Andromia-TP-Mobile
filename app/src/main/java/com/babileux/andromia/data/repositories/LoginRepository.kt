@@ -49,6 +49,12 @@ class LoginRepository(private val context: Context) {
         Token(accessToken, refreshToken)
     }
 
+    val user = context.dataStore.data.map{ preferences ->
+        val username = preferences[PreferencesKeys.USERNAME]?:""
+        val nbInox = preferences[PreferencesKeys.NBINOX]?:0
+        mapOf("username" to username, "nbInox" to nbInox)
+    }
+
     suspend fun createExplorateur(newExplorateur: Explorateur) : Resource<Explorateur> {
         return withContext(Dispatchers.IO) {
 
