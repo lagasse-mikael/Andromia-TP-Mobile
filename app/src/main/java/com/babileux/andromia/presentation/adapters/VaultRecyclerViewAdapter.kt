@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.babileux.andromia.R
 import com.babileux.andromia.databinding.ItemElementBinding
 import com.babileux.andromia.domain.models.Element
+import com.bumptech.glide.Glide
 
 
 class VaultRecyclerViewAdapter(var elements: List<Element>)
@@ -32,11 +33,16 @@ class VaultRecyclerViewAdapter(var elements: List<Element>)
 
 
         fun bind(element: Element) {
-            Log.d("test", element.toString())
 
             binding.txvElementName.text = element.element
             binding.txvQuantityElement.text = element.quantity.toString()
             //TODO: GLIDE POUR LIMAGE
+
+            // Exemple de glide
+            //Glide.with(binding.root.context).load(creature.asset).into(binding.imvCreature)
+
+
+
         }
     }
 
