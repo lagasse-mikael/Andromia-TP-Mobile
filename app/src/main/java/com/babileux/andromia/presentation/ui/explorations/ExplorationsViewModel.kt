@@ -23,7 +23,8 @@ class ExplorationsViewModel(application: Application): AndroidViewModel(applicat
 
     init {
         viewModelScope.launch {
-            explorationRepository.retriveExploration().collect{
+            val tokens = loginRepository.userConnected.first()
+            explorationRepository.retriveExploration(tokens.access_token).collect{
                 _exploration.value = it
             }
         }

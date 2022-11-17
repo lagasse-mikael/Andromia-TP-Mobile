@@ -2,6 +2,7 @@ package com.babileux.andromia.data.datasources
 
 import com.babileux.andromia.core.Constants
 import com.babileux.andromia.data.repositories.LoginRepository
+import com.babileux.andromia.domain.models.Exploration
 import com.github.kittinunf.fuel.core.extensions.authentication
 import com.github.kittinunf.fuel.core.extensions.jsonBody
 import com.github.kittinunf.fuel.httpGet
@@ -34,5 +35,21 @@ suspend fun GenerateExploration(token : String, qrCode: String) {
                 }
         }
 }
+
+        suspend fun retrieveAll(accesToken : String) : List<Exploration> {
+
+                return withContext(Dispatchers.IO) {
+                        val (_, _, result) = Constants.BaseURL.USER_EXPLORATION.httpGet().authentication().bearer(accesToken).responseJson()
+                        when(result) {
+                                is Result.Success -> {
+                                        return@withContext json.decodeFromString(result.value.content)
+                                }
+                                is Result.Failure -> {
+                                        throw result.error.exception
+
+                                }
+                        }
+                }
+        }
 
 }

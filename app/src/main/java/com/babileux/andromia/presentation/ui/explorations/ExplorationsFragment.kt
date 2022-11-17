@@ -12,6 +12,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.babileux.andromia.R
+import com.babileux.andromia.core.LoadingResource
+import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.FragmentListExplorationsBinding
 import com.babileux.andromia.presentation.adapters.ExplorationsRecyclerViewAdapter
 import com.babileux.andromia.presentation.ui.creatures.ExplorationsViewModel
@@ -39,6 +41,23 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
             adapter = explorationsRecyclerViewAdapter
         }
         binding.btnAddExploration.setOnClickListener { quickieActivityLauncher.launch(null) }
+
+        viewModel.exploration.observe(viewLifecycleOwner){
+            when(it){
+                is LoadingResource.Error -> {
+                    Toast.makeText(requireContext(),it.message,Toast.LENGTH_LONG).show()
+                }
+                is LoadingResource.Loading -> {
+
+                }
+                is LoadingResource.Success -> {
+                    explorationsRecyclerViewAdapter.explorations = it.data!!
+                    explorationsRecyclerViewAdapter.notifyAllItemChanged()
+                }
+            }
+        }
+
+
 
     }
     val scanQrCodeLauncher = registerForActivityResult(ScanQRCode()) { result ->

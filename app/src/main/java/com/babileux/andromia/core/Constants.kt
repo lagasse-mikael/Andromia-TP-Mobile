@@ -11,6 +11,10 @@ object Constants {
         const val LOGIN = "${BASE_API}/explorers/login"
         const val CREATURES = "${BASE_API}/explorers/creatures"
         const val EXPLORATION = "${BASE_API}/explorations/"
+        const val USER_EXPLORATION = "${BASE_API}/explorers/explorations"
+
 
     }
+
+    const val EXPLORATIONS_DELAY : Long = 30000L
 }

@@ -19,17 +19,19 @@ class ExplorationsRecyclerViewAdapter(
     override fun getItemCount() = explorations.size
 
 
+
     inner class ViewHolder(private val binding: ItemExplorationBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(exploration: Exploration) {
-
+            binding.txvExploDDate.text = exploration.explorationDate
 
         }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val exploration = explorations[position]
+        holder.bind(exploration)
     }
 }
 
