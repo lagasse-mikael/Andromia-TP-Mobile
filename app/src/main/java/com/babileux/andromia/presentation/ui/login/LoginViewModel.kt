@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.babileux.andromia.core.Resource
 import com.babileux.andromia.data.repositories.LoginRepository
 import com.babileux.andromia.domain.models.Explorateur
-import com.babileux.andromia.domain.models.Token
+import com.babileux.andromia.domain.models.UserConnected
 import kotlinx.coroutines.launch
 
 class LoginViewModel(application: Application): AndroidViewModel(application) {
@@ -30,7 +30,7 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
 
     }
 
-    fun save (tokens: Token, username:String, nbInox: Int) {
+    fun save (tokens: UserConnected, username:String, nbInox: Int) {
         viewModelScope.launch {
             loginRepository.save(tokens, username, nbInox)
         }

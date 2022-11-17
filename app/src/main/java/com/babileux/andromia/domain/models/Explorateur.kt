@@ -9,5 +9,5 @@ data class Explorateur(
     val email:String="",
     val vault: Vault = Vault(),
     val explorations: List<Exploration> = listOf(),
-    val tokens: Token = Token()
+    val tokens: UserConnected = UserConnected()
 )

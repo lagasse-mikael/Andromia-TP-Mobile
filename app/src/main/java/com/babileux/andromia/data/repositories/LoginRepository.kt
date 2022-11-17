@@ -9,7 +9,7 @@ import com.babileux.andromia.core.Constants
 import com.babileux.andromia.core.Resource
 import com.babileux.andromia.data.datasources.LoginDataSource
 import com.babileux.andromia.domain.models.Explorateur
-import com.babileux.andromia.domain.models.Token
+import com.babileux.andromia.domain.models.UserConnected
 import com.github.kittinunf.fuel.core.extensions.jsonBody
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.fuel.json.responseJson
@@ -43,17 +43,19 @@ class LoginRepository(private val context: Context) {
         val NBINOX =  intPreferencesKey("inox")
     }
 
-    val tokens: Flow<Token> = context.dataStore.data.map{ preferences ->
+    val userConnected: Flow<UserConnected> = context.dataStore.data.map{ preferences ->
         val accessToken = preferences[PreferencesKeys.TOKEN]?: ""
         val refreshToken = preferences[PreferencesKeys.REFRESHTOKEN]?: ""
-        Token(accessToken, refreshToken)
-    }
-
-    val user = context.dataStore.data.map{ preferences ->
         val username = preferences[PreferencesKeys.USERNAME]?:""
         val nbInox = preferences[PreferencesKeys.NBINOX]?:0
-        mapOf("username" to username, "nbInox" to nbInox)
+        UserConnected(accessToken, refreshToken, username, nbInox)
     }
+
+    /*val user = context.dataStore.data.map{ preferences ->
+       val username = preferences[PreferencesKeys.USERNAME]?:""
+        val nbInox = preferences[PreferencesKeys.NBINOX]?:0
+        mapOf("username" to username, "nbInox" to nbInox)
+    }*/
 
     suspend fun createExplorateur(newExplorateur: Explorateur) : Resource<Explorateur> {
         return withContext(Dispatchers.IO) {
@@ -71,7 +73,7 @@ class LoginRepository(private val context: Context) {
         }
     }
 
-    suspend fun save(tokens: Token, username:String , nbInox:Int) {
+    suspend fun save(tokens: UserConnected, username:String, nbInox:Int) {
         context.dataStore.edit { preferences ->
             preferences[PreferencesKeys.TOKEN] = tokens.access_token
             preferences[PreferencesKeys.REFRESHTOKEN] = tokens.refresh_token

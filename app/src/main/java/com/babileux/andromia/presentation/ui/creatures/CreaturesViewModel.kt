@@ -20,8 +20,8 @@ class CreaturesViewModel (application: Application): AndroidViewModel(applicatio
 
     init {
         viewModelScope.launch {
-            val token = loginRepository.tokens.first()
-            creatureRepository.retrieveCreatureExplorer(token.access_token).collect(){
+            val tokens = loginRepository.userConnected.first()
+            creatureRepository.retrieveCreatureExplorer(tokens.access_token).collect(){
                 _creatures.value = it
             }
         }

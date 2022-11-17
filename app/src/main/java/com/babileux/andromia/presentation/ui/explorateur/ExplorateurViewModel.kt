@@ -25,7 +25,7 @@ class ExplorateurViewModel (application: Application): AndroidViewModel(applicat
 
     init {
         viewModelScope.launch {
-           val tokens =  loginRepository.tokens.first()
+           val tokens =  loginRepository.userConnected.first()
             explorateurRepository.retriveExplorerVault(tokens.access_token).collect{
                 _exploraterVault.value = it
             }

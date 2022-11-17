@@ -5,11 +5,10 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.babileux.andromia.core.LoadingResource
 import com.babileux.andromia.core.Resource
 import com.babileux.andromia.data.repositories.LoginRepository
 import com.babileux.andromia.domain.models.Explorateur
-import com.babileux.andromia.domain.models.Token
+import com.babileux.andromia.domain.models.UserConnected
 import kotlinx.coroutines.launch
 
 class CreationCompteViewModel(application: Application): AndroidViewModel(application) {
@@ -26,19 +25,14 @@ class CreationCompteViewModel(application: Application): AndroidViewModel(applic
 
          viewModelScope.launch {
              val newExplorateur = Explorateur(username, email, password)
-
             _newExplorateurResponse.value = loginRepository.createExplorateur(newExplorateur)
-
-
-
-
          }
 
     }
 
-    fun save (tokens: Token) {
+    fun save (tokens: UserConnected, username: String, nbInox: Int) {
         viewModelScope.launch {
-            loginRepository.save(tokens)
+            loginRepository.save(tokens, username, nbInox)
         }
     }
 }

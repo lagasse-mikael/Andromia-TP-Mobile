@@ -31,7 +31,9 @@ class ExplorationsViewModel(application: Application): AndroidViewModel(applicat
 
     fun GenerateExploration(qrCode: String) {
         viewModelScope.launch {
-            val tokens =  loginRepository.tokens.first()
+            //J'avais besoin de save un peu plus de trucs faique j'ai fait un objet userConnected
+            // au lieu d'avoir un objet pour le user et un objet pour les tokens
+            val tokens =  loginRepository.userConnected.first()
             explorationRepository.GenerateExploration(tokens.access_token, qrCode)
 
 
