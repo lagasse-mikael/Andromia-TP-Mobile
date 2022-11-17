@@ -17,6 +17,7 @@ import com.babileux.andromia.presentation.adapters.ExplorationsRecyclerViewAdapt
 import com.babileux.andromia.presentation.ui.creatures.ExplorationsViewModel
 import io.github.g00fy2.quickie.QRResult
 import io.github.g00fy2.quickie.ScanQRCode
+import io.github.g00fy2.quickie.content.QRContent
 
 class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
 
@@ -47,9 +48,8 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
     private fun handleQuickieResult(qrResult: QRResult) {
         when (qrResult) {
             is QRResult.QRSuccess -> {
-                // Sorry whoever fait ça icitte
-                //viewModelDetail.addGateway(qrResult.content.rawValue)
                 Toast.makeText(requireContext(),"QR SUCCESS",Toast.LENGTH_LONG).show()
+                GenerateExploration(qrResult.content.rawValue)
             }
             is QRResult.QRUserCanceled -> {
                 Toast.makeText(
@@ -72,7 +72,9 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
         }
     }
 
-
+    fun GenerateExploration(qrResult: String) {
+        viewModel.GenerateExploration(qrResult)
+    }
 
 
 
