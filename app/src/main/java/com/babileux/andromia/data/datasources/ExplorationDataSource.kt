@@ -21,9 +21,11 @@ class ExplorationDataSource {
         private val json = Json { ignoreUnknownKeys = true }
 
 
-suspend fun GenerateExploration(token : String, qrCode: String) {
+suspend fun GenerateExploration(token : String, qrKey: String) {
         return withContext(Dispatchers.IO) {
-                val body = "{'qrKey': ${qrCode}}"
+                val body = "{'qrKey': ${qrKey}}"
+                //val body = "{'qrKey': ${qrKey}, 'token': ${token}}"
+                //val map = mapOf("qrKey" to qrKey)
                 val (_, _, result) = Constants.BaseURL.EXPLORATION.httpPost().jsonBody(body).authentication().bearer(token).responseJson()
                 when(result) {
                         is Result.Success -> {
