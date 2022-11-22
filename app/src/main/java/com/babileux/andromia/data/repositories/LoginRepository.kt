@@ -5,9 +5,13 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.WorkRequest
 import com.babileux.andromia.core.Constants
 import com.babileux.andromia.core.Resource
 import com.babileux.andromia.data.datasources.LoginDataSource
+import com.babileux.andromia.data.worker.RefreshTokenWorker
 import com.babileux.andromia.domain.models.Explorateur
 import com.babileux.andromia.domain.models.UserConnected
 import com.github.kittinunf.fuel.core.extensions.jsonBody
@@ -21,12 +25,15 @@ import kotlinx.coroutines.withContext
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import java.util.concurrent.TimeUnit
 
 
 val Context.dataStore by preferencesDataStore("userConnected")
 
 class LoginRepository(private val context: Context) {
     private val loginDataSource = LoginDataSource()
+    private val refreshTokenRequest: WorkRequest = PeriodicWorkRequestBuilder<RefreshTokenWorker>(Constants.TOKENS_DELAY, TimeUnit.MINUTES).build()
+
 
     suspend fun retrieve(explorateur: Explorateur) : Resource<Explorateur> {
         return try {
@@ -79,7 +86,11 @@ class LoginRepository(private val context: Context) {
             preferences[PreferencesKeys.REFRESHTOKEN] = tokens.refresh_token
             preferences[PreferencesKeys.USERNAME] = username
             preferences[PreferencesKeys.NBINOX] = nbInox
-
+            startTokenWork(tokens.access_token,tokens.refresh_token)
         }
+    }
+
+    fun startTokenWork(accesToken: String, refreshToken:String) {
+        WorkManager.getInstance(context).enqueue(refreshTokenRequest)
     }
 }
