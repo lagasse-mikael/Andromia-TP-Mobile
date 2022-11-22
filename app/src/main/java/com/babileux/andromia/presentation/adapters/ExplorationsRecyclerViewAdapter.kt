@@ -30,14 +30,18 @@ class ExplorationsRecyclerViewAdapter(
             with(binding){
                 txvExploDDate.text = DateHelper.formatISODate(exploration.explorationDate)
                 txvExploDestination.text = exploration.destination
-                inoxTxv.text = exploration.vault.inox.toString()
-                nameCreature.text = exploration.creature.name
-                Glide.with(binding.root.context).load(exploration.creature.asset).into(binding.creatureImg)
-
-                exploration.vault.elements.forEach { e->
-                    applyElementValue(e, binding)
-
+                if(exploration.vault != null) {
+                    inoxTxv.text = exploration.vault.inox.toString()
+                    exploration.vault.elements.forEach { e->
+                        applyElementValue(e, binding)
+                    }
                 }
+                if(exploration.creature != null){
+                    nameCreature.text = exploration.creature.name
+                    Glide.with(binding.root.context).load(exploration.creature.asset).into(binding.creatureImg)
+                }
+
+
                 setNotUseElement(binding)
             }
 

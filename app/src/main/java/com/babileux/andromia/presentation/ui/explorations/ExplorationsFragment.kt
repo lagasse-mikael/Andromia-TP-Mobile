@@ -51,7 +51,7 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
 
                 }
                 is LoadingResource.Success -> {
-                    explorationsRecyclerViewAdapter.explorations = it.data!!
+                    explorationsRecyclerViewAdapter.explorations = it.data!!.reversed()
                     explorationsRecyclerViewAdapter.notifyAllItemChanged()
                 }
             }

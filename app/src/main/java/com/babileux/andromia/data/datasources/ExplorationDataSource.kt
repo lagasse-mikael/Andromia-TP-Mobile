@@ -25,8 +25,7 @@ class ExplorationDataSource {
 
 suspend fun GenerateExploration(token : String, qrKey: String) {
         return withContext(Dispatchers.IO) {
-                //val body = "{'qrKey': ${qrKey}}"
-                //val body = "{'token': ${token}, 'qrKey': ${qrKey}}"
+
                 val map = mapOf("qrKey" to qrKey)
                 val (request, response, result) = Constants.BaseURL.EXPLORATION.httpPost().jsonBody(Json.encodeToString(map)).authentication().bearer(token).responseJson()
                 Log.d("GG", request.toString())

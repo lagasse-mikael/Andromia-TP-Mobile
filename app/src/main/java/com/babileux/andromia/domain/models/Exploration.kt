@@ -4,11 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Exploration(
-    //val _id: String = "",
     val explorationDate: String="",
     val destination: String = "",
     val affinity: String = "",
-    val vault : Vault,
-    val creature: Creature,
+    val vault : Vault? = null,
+    val creature: Creature? = null,
     //val combat : Combat
 )
