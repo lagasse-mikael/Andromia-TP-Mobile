@@ -37,19 +37,7 @@ class CreatureRepository {
                 emit(LoadingResource.Loading())
                 emit(LoadingResource.Success(creatureDataSource.retrieveCreatureExplorer(accessToken)))
             } catch (ex:Exception) {
-                emit(LoadingResource.Error(ex))
-            }
-        }
-    }
-
-    suspend fun retrieve(href: String): Flow<LoadingResource<Creature>> {
-        return flow {
-            while (true) {
-                try {
-                    emit(LoadingResource.Success(creatureDataSource.retrieve(href)))
-                } catch (ex: Exception) {
-                    emit(LoadingResource.Error(ex, ex.message))
-                }
+                emit(LoadingResource.Error(ex,ex.message))
             }
         }
     }

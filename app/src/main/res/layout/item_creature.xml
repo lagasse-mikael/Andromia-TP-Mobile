@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="209dp"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,6 +27,47 @@
             app:layout_constraintTop_toBottomOf="@+id/imvCreature"
             tools:text="Creature Name" />
 
+        <!-- <ImageView
+            android:id="@+id/imvKernelFirst"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/element_a"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imvKernelSecond"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/element_a"
+            tools:layout_editor_absoluteX="50dp" />
+
+        <ImageView
+            android:id="@+id/imvKernelThird"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/element_a"
+            tools:layout_editor_absoluteY="50dp" />
+
+
+        <ImageView
+            android:id="@+id/imvKernelFourth"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/element_a"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="50dp" />
+
+
+        <ImageView
+            android:id="@+id/imvKernelFifth"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/element_a"
+
+            />-->
+
+
         <ImageView
             android:id="@+id/imvCreature"
             android:layout_width="133dp"
@@ -39,33 +80,57 @@
             app:layout_constraintVertical_bias="0.235"
             app:srcCompat="@drawable/testceature" />
 
-        <TextView
-            android:id="@+id/txvAffinityCreature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:layout_constraintEnd_toEndOf="@+id/nameCreature"
-            app:layout_constraintStart_toStartOf="@+id/nameCreature"
-            app:layout_constraintTop_toBottomOf="@+id/nameCreature"
+        <ImageView
+            android:id="@+id/imvAffinityCreature"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/affinity_air"
+            app:layout_constraintBottom_toTopOf="@+id/imvBookSecond"
+            app:layout_constraintEnd_toEndOf="@+id/imvBookSecond"
+            app:layout_constraintStart_toStartOf="@+id/imvBookFirst"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="AFFINITY" />
 
 
-        <TextView
+        <ImageView
+            android:id="@+id/imvBookFirst"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/book_black"
+            app:layout_constraintEnd_toStartOf="@+id/imvBookSecond"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="60dp"
+            tools:text="BookFirst" />
+
+        <ImageView
+            android:id="@+id/imvBookSecond"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/book_pink"
+            app:layout_constraintEnd_toStartOf="@+id/imvCreature"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imvBookFirst"
+            tools:layout_editor_absoluteY="60dp"
+            tools:text="BookSecond" />
+
+        <ImageView
             android:id="@+id/txvLifeCreature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="18dp"
+            android:src="@drawable/icon_life"
             android:text="@string/life"
             app:layout_constraintBottom_toTopOf="@+id/txvShieldCreature"
             app:layout_constraintEnd_toStartOf="@+id/txvValueLife"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imvCreature"
             app:layout_constraintTop_toTopOf="@+id/imvCreature" />
 
 
-        <TextView
+        <ImageView
             android:id="@+id/txvPowerCreature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="18dp"
+            android:src="@drawable/icon_power"
             android:text="@string/power"
             app:layout_constraintBottom_toTopOf="@+id/txvSpeedCreature"
             app:layout_constraintEnd_toEndOf="@+id/txvLifeCreature"
@@ -79,17 +144,16 @@
             app:layout_constraintBottom_toBottomOf="@+id/txvSpeedCreature"
             app:layout_constraintEnd_toEndOf="@+id/txvValuePower"
             app:layout_constraintStart_toStartOf="@+id/txvValuePower"
-            app:layout_constraintTop_toBottomOf="@+id/txvValuePower"
+            app:layout_constraintTop_toTopOf="@+id/txvSpeedCreature"
             tools:text="99" />
 
         <TextView
             android:id="@+id/txvValueLife"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/txvShieldValue"
+            app:layout_constraintBottom_toBottomOf="@+id/txvLifeCreature"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/txvLifeCreature"
+            app:layout_constraintStart_toEndOf="@+id/imvCreature"
             app:layout_constraintTop_toTopOf="@+id/txvLifeCreature"
             tools:text="99" />
 
@@ -97,36 +161,38 @@
             android:id="@+id/txvShieldValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/txvValuePower"
+            app:layout_constraintBottom_toBottomOf="@+id/txvShieldCreature"
             app:layout_constraintEnd_toEndOf="@+id/txvValueLife"
             app:layout_constraintStart_toStartOf="@+id/txvValueLife"
-            app:layout_constraintTop_toBottomOf="@+id/txvValueLife"
+            app:layout_constraintTop_toTopOf="@+id/txvShieldCreature"
             tools:text="99" />
 
         <TextView
             android:id="@+id/txvValuePower"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/txvValueSpeed"
+            app:layout_constraintBottom_toBottomOf="@+id/txvPowerCreature"
             app:layout_constraintEnd_toEndOf="@+id/txvShieldValue"
             app:layout_constraintStart_toStartOf="@+id/txvShieldValue"
-            app:layout_constraintTop_toBottomOf="@+id/txvShieldValue"
+            app:layout_constraintTop_toTopOf="@+id/txvPowerCreature"
             tools:text="99" />
 
-        <TextView
+        <ImageView
             android:id="@+id/txvSpeedCreature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="18dp"
+            android:src="@drawable/icon_speed"
             android:text="@string/speed"
             app:layout_constraintBottom_toBottomOf="@+id/imvCreature"
             app:layout_constraintEnd_toEndOf="@+id/txvLifeCreature"
             app:layout_constraintStart_toStartOf="@+id/txvLifeCreature"
             app:layout_constraintTop_toBottomOf="@+id/txvPowerCreature" />
 
-        <TextView
+        <ImageView
             android:id="@+id/txvShieldCreature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="18dp"
+            android:src="@drawable/icon_shield"
             android:text="@string/shield"
             app:layout_constraintBottom_toTopOf="@+id/txvPowerCreature"
             app:layout_constraintEnd_toEndOf="@+id/txvLifeCreature"
@@ -137,145 +203,208 @@
             android:id="@+id/txvHashStart"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
-            android:textAlignment="center"
+            android:layout_marginTop="10dp"
             android:text="aa"
+            android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/txvHashFirst"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
 
         <TextView
             android:id="@+id/txvHashFirst"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@color/purple_200"
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/txvHashSecond"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
 
         <TextView
             android:id="@+id/txvHashSecond"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@color/purple_200"
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/txvHashThird"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvHashFirst"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
 
         <TextView
             android:id="@+id/txvHashThird"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@color/purple_200"
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/txvHashFourth"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvHashSecond"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
 
         <TextView
             android:id="@+id/txvHashFourth"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@color/purple_200"
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/txvHashFifth"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvHashThird"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
 
         <TextView
             android:id="@+id/txvHashFifth"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@color/purple_200"
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/txvHashSixth"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvHashFourth"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
 
         <TextView
             android:id="@+id/txvHashSixth"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@color/purple_200"
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/txvHashSeventh"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvHashFifth"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
 
         <TextView
             android:id="@+id/txvHashSeventh"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@color/purple_200"
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/txvHashEight"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvHashSixth"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
 
         <TextView
             android:id="@+id/txvHashEight"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@color/purple_200"
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/txvHashNinth"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvHashSeventh"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
 
         <TextView
             android:id="@+id/txvHashNinth"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@color/purple_200"
             android:textAlignment="center"
             app:layout_constraintEnd_toStartOf="@+id/txvHashTenth"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvHashEight"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
 
         <TextView
             android:id="@+id/txvHashTenth"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@color/purple_200"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvHashNinth"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
 
         <TextView
             android:id="@+id/txvHashEnd"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:text="aa"
             android:textAlignment="center"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txvHashTenth"
-            app:layout_constraintTop_toBottomOf="@id/txvAffinityCreature" />
+            app:layout_constraintTop_toBottomOf="@id/nameCreature" />
+
+
+        <ImageView
+            android:id="@+id/imvKernelFirst"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/element_a"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imvKernelSecond"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvHashFifth" />
+
+        <ImageView
+            android:id="@+id/imvKernelSecond"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/element_a"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imvKernelThird"
+            app:layout_constraintStart_toEndOf="@+id/imvKernelFirst"
+            app:layout_constraintTop_toBottomOf="@+id/txvHashFirst" />
+
+        <ImageView
+            android:id="@+id/imvKernelThird"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/element_a"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imvKernelFourth"
+            app:layout_constraintStart_toEndOf="@+id/imvKernelSecond"
+            app:layout_constraintTop_toBottomOf="@+id/txvHashFirst" />
+
+        <ImageView
+            android:id="@+id/imvKernelFourth"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/element_a"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imvKernelFifth"
+            app:layout_constraintStart_toEndOf="@+id/imvKernelThird"
+            app:layout_constraintTop_toBottomOf="@+id/txvHashFirst" />
+
+        <ImageView
+            android:id="@+id/imvKernelFifth"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/element_a"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imvKernelFourth"
+            app:layout_constraintTop_toBottomOf="@+id/txvHashFirst" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

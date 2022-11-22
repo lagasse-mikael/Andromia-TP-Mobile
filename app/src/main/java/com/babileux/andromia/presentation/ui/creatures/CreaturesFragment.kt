@@ -38,7 +38,7 @@ class CreaturesFragment : Fragment(R.layout.fragment_list_creatures) {
         viewModel.creatures.observe(viewLifecycleOwner) {
             when (it) {
                 is LoadingResource.Error -> {
-                    //Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                 }
                 is LoadingResource.Loading -> {
 

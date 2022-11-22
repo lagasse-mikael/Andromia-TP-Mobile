@@ -1,6 +1,7 @@
 package com.babileux.andromia.presentation.ui.creatures
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import com.babileux.andromia.core.LoadingResource
 import com.babileux.andromia.data.repositories.CreatureRepository

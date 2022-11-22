@@ -32,19 +32,5 @@ class CreatureDataSource {
         }
     }
 
-    suspend fun retrieve(href: String) : Creature {
-        return withContext(Dispatchers.IO){
-            val (_,_, result) = href.httpGet().responseJson()
-            when(result){
-                is Result.Success -> {
-                    return@withContext json.decodeFromString(result.value.content)
-                }
-                is Result.Failure -> {
-                    throw result.error.exception
-                }
-            }
-        }
-    }
-
 
 }
