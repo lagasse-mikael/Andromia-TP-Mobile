@@ -8,12 +8,14 @@ import com.babileux.andromia.core.Constants
 import com.babileux.andromia.data.repositories.LoginRepository
 import com.babileux.andromia.data.repositories.dataStore
 import com.babileux.andromia.domain.models.Token
+import com.github.kittinunf.fuel.core.extensions.jsonBody
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.fuel.json.responseJson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 class RefreshTokenWorker(appContext: Context, workerParams: WorkerParameters) :
@@ -21,10 +23,14 @@ class RefreshTokenWorker(appContext: Context, workerParams: WorkerParameters) :
     private val loginRepository = LoginRepository(applicationContext)
     private val json = Json { ignoreUnknownKeys = true }
 
+
+
     override suspend fun doWork(): Result {
         return withContext(Dispatchers.IO) {
             val oldToken = loginRepository.userConnected.first()
-            val (_, _, result) = Constants.BaseURL.TOKENS.httpPost().body(oldToken.refresh_token)
+            val map = mapOf("refresh_token" to oldToken.refresh_token)
+            val body = Json.encodeToString(map)
+            val (_, _, result) = Constants.BaseURL.TOKENS.httpPost().jsonBody(body)
                 .responseJson()
             when (result) {
                 is com.github.kittinunf.result.Result.Success -> {
