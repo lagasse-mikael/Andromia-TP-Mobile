@@ -24,7 +24,7 @@ class CreationCompteViewModel(application: Application): AndroidViewModel(applic
      fun createUser(username: String, password : String, email : String) {
 
          viewModelScope.launch {
-             val newExplorateur = Explorateur(username, email, password)
+             val newExplorateur = Explorateur(username, password, email)
             _newExplorateurResponse.value = loginRepository.createExplorateur(newExplorateur)
          }
 
