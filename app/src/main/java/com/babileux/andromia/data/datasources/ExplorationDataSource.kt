@@ -20,40 +20,41 @@ import kotlinx.serialization.json.Json
 
 class ExplorationDataSource {
 
-        private val json = Json { ignoreUnknownKeys = true }
+    private val json = Json { ignoreUnknownKeys = true }
 
 
-suspend fun GenerateExploration(token : String, qrKey: String) {
+    suspend fun GenerateExploration(token: String, qrKey: String) {
         return withContext(Dispatchers.IO) {
 
-                val map = mapOf("qrKey" to qrKey)
-                val (request, response, result) = Constants.BaseURL.EXPLORATION.httpPost().jsonBody(Json.encodeToString(map)).authentication().bearer(token).responseJson()
-                Log.d("GG", request.toString())
-                when(result) {
-                        is Result.Success -> {
-                                return@withContext json.decodeFromString(result.value.content)
-                        }
-                        is Result.Failure -> {
-                                throw result.error.exception
-                        }
+            val map = mapOf("qrKey" to qrKey)
+            val (request, response, result) = Constants.BaseURL.EXPLORATION.httpPost()
+                .jsonBody(Json.encodeToString(map)).authentication().bearer(token).responseJson()
+            Log.d("GG", request.toString())
+            when (result) {
+                is Result.Success -> {
+                    return@withContext json.decodeFromString(result.value.content)
                 }
-        }
-}
-
-        suspend fun retrieveAll(accesToken : String) : List<Exploration> {
-
-                return withContext(Dispatchers.IO) {
-                        val (_, _, result) = Constants.BaseURL.USER_EXPLORATION.httpGet().authentication().bearer(accesToken).responseJson()
-                        when(result) {
-                                is Result.Success -> {
-                                        return@withContext json.decodeFromString(result.value.content)
-                                }
-                                is Result.Failure -> {
-                                        throw result.error.exception
-
-                                }
-                        }
+                is Result.Failure -> {
+                    throw result.error.exception
                 }
+            }
         }
+    }
 
+    suspend fun retrieveAll(accesToken: String): List<Exploration> {
+
+        return withContext(Dispatchers.IO) {
+            val (_, _, result) = Constants.BaseURL.USER_EXPLORATION.httpGet().authentication()
+                .bearer(accesToken).responseJson()
+            when (result) {
+                is Result.Success -> {
+                    return@withContext json.decodeFromString(result.value.content)
+                }
+                is Result.Failure -> {
+                    throw result.error.exception
+
+                }
+            }
+        }
+    }
 }

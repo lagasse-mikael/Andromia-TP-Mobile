@@ -54,11 +54,11 @@ class CreatureRecyclerViewAdapter(
                 binding.txvHashStart.text = subStart
                 binding.txvHashEnd.text = subEnd
 
-//                binding.imvKernelFirst.loadFromResource(requireContext(), "element_"+creature.kernel[0].lowercase())
-//                binding.imvKernelSecond.loadFromResource(requireContext(), "element_"+creature.kernel[1].lowercase())
-//                binding.imvKernelThird.loadFromResource(requireContext(), "element_"+creature.kernel[2].lowercase())
-//                binding.imvKernelFourth.loadFromResource(requireContext(), "element_"+creature.kernel[3].lowercase())
-//                binding.imvKernelFifth.loadFromResource(requireContext(), "element_"+creature.kernel[4].lowercase())
+                binding.imvKernelFirst.loadFromResource(requireContext(), "element_"+creature.kernel[0].lowercase())
+                binding.imvKernelSecond.loadFromResource(requireContext(), "element_"+creature.kernel[1].lowercase())
+                binding.imvKernelThird.loadFromResource(requireContext(), "element_"+creature.kernel[2].lowercase())
+                binding.imvKernelFourth.loadFromResource(requireContext(), "element_"+creature.kernel[3].lowercase())
+                binding.imvKernelFifth.loadFromResource(requireContext(), "element_"+creature.kernel[4].lowercase())
 
                 binding.txvHashFirst.setBackgroundColor(Color.parseColor("#"+hashList[0]))
                 binding.txvHashSecond.setBackgroundColor(Color.parseColor("#"+hashList[1]))
