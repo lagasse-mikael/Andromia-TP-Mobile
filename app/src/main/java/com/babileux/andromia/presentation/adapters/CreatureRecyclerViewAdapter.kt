@@ -3,6 +3,7 @@ package com.babileux.andromia.presentation.adapters
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.babileux.andromia.R
 import com.babileux.andromia.domain.models.Creature
@@ -54,11 +55,16 @@ class CreatureRecyclerViewAdapter(
                 binding.txvHashStart.text = subStart
                 binding.txvHashEnd.text = subEnd
 
-                binding.imvKernelFirst.loadFromResource(requireContext(), "element_"+creature.kernel[0].lowercase())
-                binding.imvKernelSecond.loadFromResource(requireContext(), "element_"+creature.kernel[1].lowercase())
-                binding.imvKernelThird.loadFromResource(requireContext(), "element_"+creature.kernel[2].lowercase())
-                binding.imvKernelFourth.loadFromResource(requireContext(), "element_"+creature.kernel[3].lowercase())
-                binding.imvKernelFifth.loadFromResource(requireContext(), "element_"+creature.kernel[4].lowercase())
+                binding.imvKernelFirst.setImageResource(binding.root.resources.getIdentifier("element_${creature.kernel[0]}".lowercase(), "drawable", binding.root.context.packageName))
+                binding.imvKernelSecond.setImageResource(binding.root.resources.getIdentifier("element_${creature.kernel[1]}".lowercase(), "drawable", binding.root.context.packageName))
+                binding.imvKernelThird.setImageResource(binding.root.resources.getIdentifier("element_${creature.kernel[2]}".lowercase(), "drawable", binding.root.context.packageName))
+                binding.imvKernelFourth.setImageResource(binding.root.resources.getIdentifier("element_${creature.kernel[3]}".lowercase(), "drawable", binding.root.context.packageName))
+                binding.imvKernelFifth.setImageResource(binding.root.resources.getIdentifier("element_${creature.kernel[4]}".lowercase(), "drawable", binding.root.context.packageName))
+
+
+                binding.imvBookFirst.setImageResource(binding.root.resources.getIdentifier("book_${creature.books[0]}", "drawable", binding.root.context.packageName))
+                Log.i("livre","book_${creature.books[0]}");
+                binding.imvBookSecond.setImageResource(binding.root.resources.getIdentifier("book_${creature.books[1]}", "drawable", binding.root.context.packageName))
 
                 binding.txvHashFirst.setBackgroundColor(Color.parseColor("#"+hashList[0]))
                 binding.txvHashSecond.setBackgroundColor(Color.parseColor("#"+hashList[1]))
@@ -71,7 +77,8 @@ class CreatureRecyclerViewAdapter(
                 binding.txvHashNinth.setBackgroundColor(Color.parseColor("#"+hashList[8]))
                 binding.txvHashTenth.setBackgroundColor(Color.parseColor("#"+hashList[9]))
 
-                Glide.with(root.context).load(creature.books[0]).into((imvBookFirst));
+                Glide.with(root.context).load("book_"+creature.books[0]+".png").into((imvBookFirst));
+                Glide.with(root.context).load("book_"+creature.books[1]+".png").into((imvBookSecond));
                 Glide.with(root.context).load(creature.affinity).into(imvAffinityCreature)
 
                 Glide.with(root.context)

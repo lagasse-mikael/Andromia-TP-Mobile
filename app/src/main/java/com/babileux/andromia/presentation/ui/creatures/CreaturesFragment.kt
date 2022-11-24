@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.babileux.andromia.R
 import com.babileux.andromia.core.LoadingResource
+import com.babileux.andromia.core.loadFromResource
 import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.FragmentListCreaturesBinding
 import com.babileux.andromia.domain.models.Creature
@@ -50,4 +53,5 @@ class CreaturesFragment : Fragment(R.layout.fragment_list_creatures) {
             }
         }
     }
+
 }
