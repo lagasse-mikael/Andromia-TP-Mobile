@@ -1,8 +1,13 @@
 package com.babileux.andromia.presentation.adapters
 
+import android.graphics.drawable.Drawable
+import android.view.View
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
+import com.babileux.andromia.R
 import com.babileux.andromia.core.DateHelper
 import com.babileux.andromia.databinding.ItemExplorationBinding
 import com.babileux.andromia.domain.models.Element
@@ -39,6 +44,9 @@ class ExplorationsRecyclerViewAdapter(
                 if(exploration.creature != null){
                     nameCreature.text = exploration.creature.name
                     Glide.with(binding.root.context).load(exploration.creature.asset).into(binding.creatureImg)
+                } else {
+                    nameCreature.text = "Aucun"
+                    creatureImg.setImageResource(R.drawable.none)
                 }
 
 
