@@ -61,9 +61,8 @@ class CreatureRecyclerViewAdapter(
                 binding.imvKernelFourth.setImageResource(binding.root.resources.getIdentifier("element_${creature.kernel[3]}".lowercase(), "drawable", binding.root.context.packageName))
                 binding.imvKernelFifth.setImageResource(binding.root.resources.getIdentifier("element_${creature.kernel[4]}".lowercase(), "drawable", binding.root.context.packageName))
 
-
+                binding.imvAffinityCreature.setImageResource(binding.root.resources.getIdentifier("affinity_${creature.affinity}","drawable",binding.root.context.packageName))
                 binding.imvBookFirst.setImageResource(binding.root.resources.getIdentifier("book_${creature.books[0]}", "drawable", binding.root.context.packageName))
-                Log.i("livre","book_${creature.books[0]}");
                 binding.imvBookSecond.setImageResource(binding.root.resources.getIdentifier("book_${creature.books[1]}", "drawable", binding.root.context.packageName))
 
                 binding.txvHashFirst.setBackgroundColor(Color.parseColor("#"+hashList[0]))
@@ -76,10 +75,6 @@ class CreatureRecyclerViewAdapter(
                 binding.txvHashEight.setBackgroundColor(Color.parseColor("#"+hashList[7]))
                 binding.txvHashNinth.setBackgroundColor(Color.parseColor("#"+hashList[8]))
                 binding.txvHashTenth.setBackgroundColor(Color.parseColor("#"+hashList[9]))
-
-                Glide.with(root.context).load("book_"+creature.books[0]+".png").into((imvBookFirst));
-                Glide.with(root.context).load("book_"+creature.books[1]+".png").into((imvBookSecond));
-                Glide.with(root.context).load(creature.affinity).into(imvAffinityCreature)
 
                 Glide.with(root.context)
                     .load(creature.asset)
