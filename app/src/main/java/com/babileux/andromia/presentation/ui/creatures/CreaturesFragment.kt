@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.babileux.andromia.R
 import com.babileux.andromia.core.LoadingResource
+import com.babileux.andromia.core.loadFromResource
 import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.FragmentListCreaturesBinding
 import com.babileux.andromia.domain.models.Creature
@@ -41,13 +44,21 @@ class CreaturesFragment : Fragment(R.layout.fragment_list_creatures) {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                 }
                 is LoadingResource.Loading -> {
-
+                    binding.rcvCreature.visibility = View.INVISIBLE
                 }
                 is LoadingResource.Success -> {
-                    creatureRecycleViewAdapter.creatures = it.data!!
-                    creatureRecycleViewAdapter.notifyAllItemChanged()
+                    if(it.data!!.isNotEmpty()){
+                        creatureRecycleViewAdapter.creatures = it.data!!
+                        creatureRecycleViewAdapter.notifyAllItemChanged()
+                        binding.rcvCreature.visibility = View.VISIBLE
+                        binding.txvPasCreature.visibility = View.INVISIBLE
+                    } else {
+                        binding.txvPasCreature.visibility = View.VISIBLE
+                    }
+
                 }
             }
         }
     }
+
 }

@@ -57,10 +57,6 @@ class LoginActivity : AppCompatActivity() {
             
         }
 
-        binding.btnSkipLogin.setOnClickListener {
-            val intent = MainActivity.newIntent(this)
-            startActivity(intent)
-        }
     }
 
 
