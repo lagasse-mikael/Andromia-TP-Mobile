@@ -48,11 +48,18 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
                     Toast.makeText(requireContext(),it.message,Toast.LENGTH_LONG).show()
                 }
                 is LoadingResource.Loading -> {
-
+                    binding.rcvExplorations.visibility = View.INVISIBLE
                 }
                 is LoadingResource.Success -> {
-                    explorationsRecyclerViewAdapter.explorations = it.data!!.reversed()
-                    explorationsRecyclerViewAdapter.notifyAllItemChanged()
+                    if(it.data!!.isNotEmpty()) {
+                        explorationsRecyclerViewAdapter.explorations = it.data!!.reversed()
+                        explorationsRecyclerViewAdapter.notifyAllItemChanged()
+                        binding.rcvExplorations.visibility = View.VISIBLE
+                        binding.txvPasExplo.visibility = View.INVISIBLE
+                    } else {
+                        binding.txvPasExplo.visibility = View.VISIBLE
+                    }
+
                 }
             }
         }

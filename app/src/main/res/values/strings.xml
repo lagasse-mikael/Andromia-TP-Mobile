@@ -13,4 +13,6 @@
     <string name="power">Power</string>
     <string name="speed">Speed</string>
     <string name="shield">Shield</string>
+    <string name="pas_de_cr_atures">Pas de créatures :(</string>
+    <string name="noexplorations">Aucunes explorations, tu peux en ajouter en cliquant sur le +</string>
 </resources>

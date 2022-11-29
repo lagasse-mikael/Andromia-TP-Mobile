@@ -44,11 +44,18 @@ class CreaturesFragment : Fragment(R.layout.fragment_list_creatures) {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                 }
                 is LoadingResource.Loading -> {
-
+                    binding.rcvCreature.visibility = View.INVISIBLE
                 }
                 is LoadingResource.Success -> {
-                    creatureRecycleViewAdapter.creatures = it.data!!
-                    creatureRecycleViewAdapter.notifyAllItemChanged()
+                    if(it.data!!.isNotEmpty()){
+                        creatureRecycleViewAdapter.creatures = it.data!!
+                        creatureRecycleViewAdapter.notifyAllItemChanged()
+                        binding.rcvCreature.visibility = View.VISIBLE
+                        binding.txvPasCreature.visibility = View.INVISIBLE
+                    } else {
+                        binding.txvPasCreature.visibility = View.VISIBLE
+                    }
+
                 }
             }
         }
