@@ -15,17 +15,23 @@ import com.babileux.andromia.domain.models.Exploration
 import com.bumptech.glide.Glide
 
 class ExplorationsRecyclerViewAdapter(
-    var explorations: List<Exploration> = listOf()):RecyclerView.Adapter<ExplorationsRecyclerViewAdapter.ViewHolder>() {
+    var explorations: List<Exploration> = listOf(),
+    private val onExplorationClick: (Exploration) -> Unit) :RecyclerView.Adapter<ExplorationsRecyclerViewAdapter.ViewHolder>()
+{
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExplorationsRecyclerViewAdapter.ViewHolder {
         return ViewHolder(ItemExplorationBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-
-
     }
+    override fun onBindViewHolder(holder: ExplorationsRecyclerViewAdapter.ViewHolder, position: Int) {
+        val exploration = explorations[position]
+        holder.bind(exploration)
 
+        holder.itemView.setOnClickListener {
+            onExplorationClick(exploration)
+        }
+    }
     override fun getItemCount() = explorations.size
-
 
 
     inner class ViewHolder(private val binding: ItemExplorationBinding) :
@@ -58,10 +64,7 @@ class ExplorationsRecyclerViewAdapter(
         }
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val exploration = explorations[position]
-        holder.bind(exploration)
-    }
+
 
     fun applyElementValue(e : Element, binding : ItemExplorationBinding){
 

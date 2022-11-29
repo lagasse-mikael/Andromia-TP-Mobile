@@ -15,6 +15,7 @@ import com.babileux.andromia.R
 import com.babileux.andromia.core.LoadingResource
 import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.FragmentListExplorationsBinding
+import com.babileux.andromia.domain.models.Exploration
 import com.babileux.andromia.presentation.adapters.ExplorationsRecyclerViewAdapter
 import com.babileux.andromia.presentation.ui.creatures.ExplorationsViewModel
 import io.github.g00fy2.quickie.QRResult
@@ -34,7 +35,7 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        explorationsRecyclerViewAdapter = ExplorationsRecyclerViewAdapter(listOf())
+        explorationsRecyclerViewAdapter = ExplorationsRecyclerViewAdapter(listOf(), ::onRecyclerViewExplorationClick)
 
         binding.rcvExplorations.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -100,6 +101,10 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
 
     fun GenerateExploration(qrResult: String) {
         viewModel.GenerateExploration(qrResult)
+    }
+
+    fun onRecyclerViewExplorationClick(exploration: Exploration) {
+
     }
 
 

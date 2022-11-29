@@ -6,4 +6,205 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.combats.CombatsFragment">
 
+
+
+    <ImageView
+        android:id="@+id/creatureEnemyImg"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/tool_creature"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtLifePointEnemy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:textAlignment="center"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtPowerPointEnemy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLifePointEnemy" />
+
+    <TextView
+        android:id="@+id/txtShieldPointEnemy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPowerPointEnemy" />
+
+    <TextView
+        android:id="@+id/txtSpeedPointEnemy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtShieldPointEnemy" />
+
+    <ImageView
+        android:id="@+id/imageViewLifeEnemy"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/icon_life"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewPowerEnemy"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewPowerEnemy"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/icon_power"
+        app:layout_constraintEnd_toStartOf="@+id/txtPowerPointEnemy"
+        app:layout_constraintStart_toEndOf="@+id/creatureEnemyImg"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLifeEnemy" />
+
+    <ImageView
+        android:id="@+id/imageViewShieldEnemy"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/icon_shield"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewPowerEnemy"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPowerEnemy" />
+
+    <ImageView
+        android:id="@+id/imageViewSpeedEnemy"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/icon_speed"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewShieldEnemy"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewShieldEnemy" />
+
+
+    //-----------------------
+
+
+    <ImageView
+        android:id="@+id/imageViewCreatureUser"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/tool_creature"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewLifePointUser"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/icon_life"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPowerPointUser"
+        app:layout_constraintTop_toTopOf="@+id/imageViewCreatureUser" />
+
+    <ImageView
+        android:id="@+id/imageViewPowerPointUser"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/icon_power"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewCreatureUser"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLifePointUser" />
+
+    <ImageView
+        android:id="@+id/imageViewShieldPointUser"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/icon_shield"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPowerPointUser"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPowerPointUser" />
+
+    <ImageView
+        android:id="@+id/imageViewSpeedPointUser"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/icon_speed"
+        app:layout_constraintStart_toStartOf="@+id/imageViewShieldPointUser"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewShieldPointUser" />
+
+    <TextView
+        android:id="@+id/txtUserLife"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="34dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/txtUserPower"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtUserPower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="34dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/txtUserShield"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtUserShield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="36dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/txtUserSpeed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtUserSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginBottom="32dp"
+        android:text="Fight"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewLifePointUser"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/button" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

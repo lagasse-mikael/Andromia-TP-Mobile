@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 
 class ExplorationsViewModel(application: Application): AndroidViewModel(application){
     private val explorationRepository = ExplorationRepository()
-    private val explorateurRepository = ExplorateurRepository()
 
     private val _exploration = MutableLiveData<LoadingResource<List<Exploration>>>()
     val exploration: LiveData<LoadingResource<List<Exploration>>> get() = _exploration

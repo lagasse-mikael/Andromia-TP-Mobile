@@ -385,7 +385,7 @@
             app:layout_constraintTop_toBottomOf="@+id/elementZ" />
 
         <ImageView
-            android:id="@+id/creatureImg"
+            android:id="@+id/creatureEnemyImg"
             android:layout_width="115dp"
             android:layout_height="115dp"
             android:layout_marginStart="8dp"
