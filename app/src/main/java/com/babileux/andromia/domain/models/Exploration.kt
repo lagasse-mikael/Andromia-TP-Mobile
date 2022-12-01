@@ -9,5 +9,6 @@ data class Exploration(
     val affinity: String = "",
     val vault : Vault? = null,
     val creature: Creature? = null,
+    val creatureHasBeenFought: Boolean = false
     //val combat : Combat
 )

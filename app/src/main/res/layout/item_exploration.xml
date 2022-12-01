@@ -386,12 +386,12 @@
 
         <ImageView
             android:id="@+id/creatureEnemyImg"
-            android:layout_width="115dp"
-            android:layout_height="115dp"
+            android:layout_width="109dp"
+            android:layout_height="100dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.436"
             app:layout_constraintStart_toEndOf="@+id/elementQ"
             app:layout_constraintTop_toBottomOf="@+id/nameCreature"
             app:srcCompat="@drawable/testceature" />
@@ -410,10 +410,20 @@
             android:id="@+id/inoxTxv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="inox"
             app:layout_constraintBottom_toTopOf="@+id/nameCreature"
             app:layout_constraintEnd_toStartOf="@+id/inoxImg"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnCombattre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Combattre"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="@+id/creatureEnemyImg"
+            app:layout_constraintStart_toStartOf="@+id/creatureEnemyImg"
+            app:layout_constraintTop_toBottomOf="@+id/creatureEnemyImg" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

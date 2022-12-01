@@ -39,6 +39,15 @@ class ExplorationsRecyclerViewAdapter(
 
         fun bind(exploration: Exploration) {
             with(binding){
+                if(!exploration.creatureHasBeenFought){
+                    btnCombattre.text = binding.root.context.getString(R.string.combattre)
+                    btnCombattre.isEnabled=true
+                    btnCombattre.isClickable=true
+                } else {
+                    btnCombattre.isEnabled=false
+                    btnCombattre.isClickable=false
+                    btnCombattre.text = binding.root.context.getString(R.string.Combattue)
+                }
                 txvExploDDate.text = DateHelper.formatISODate(exploration.explorationDate)
                 txvExploDestination.text = exploration.destination
                 if(exploration.vault != null) {
@@ -49,26 +58,19 @@ class ExplorationsRecyclerViewAdapter(
                 }
                 if(exploration.creature != null){
                     nameCreature.text = exploration.creature.name
-                    Glide.with(binding.root.context).load(exploration.creature.asset).into(binding.creatureImg)
+                    Glide.with(binding.root.context).load(exploration.creature.asset).into(binding.creatureEnemyImg)
                 } else {
-                    nameCreature.text = "Aucun"
-                    creatureImg.setImageResource(R.drawable.none)
+                    nameCreature.text = "Aucune"
+                    creatureEnemyImg.setImageResource(R.drawable.none)
                 }
-
-
                 setNotUseElement(binding)
             }
-
-
-
         }
     }
 
 
 
     fun applyElementValue(e : Element, binding : ItemExplorationBinding){
-
-
         when(e.element) {
             "A" -> binding.textViewA.text = "+" + e.quantity.toString()
             "B" -> binding.textViewB.text = "+" + e.quantity.toString()
@@ -93,9 +95,6 @@ class ExplorationsRecyclerViewAdapter(
     }
 
     fun setNotUseElement(binding : ItemExplorationBinding) {
-
-
-
         if(binding.textViewA.text == "") {
             binding.textViewA.text = "0"
         }

@@ -15,4 +15,6 @@
     <string name="shield">Shield</string>
     <string name="pas_de_cr_atures">Pas de créatures :(</string>
     <string name="noexplorations">Aucunes explorations, tu peux en ajouter en cliquant sur le +</string>
+    <string name="combattre">Combattre</string>
+    <string name="Combattue">Combattue</string>
 </resources>

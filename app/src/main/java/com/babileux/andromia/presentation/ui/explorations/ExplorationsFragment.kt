@@ -64,9 +64,6 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
                 }
             }
         }
-
-
-
     }
     val scanQrCodeLauncher = registerForActivityResult(ScanQRCode()) { result ->
         // handle QRResult
@@ -75,7 +72,7 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
     private fun handleQuickieResult(qrResult: QRResult) {
         when (qrResult) {
             is QRResult.QRSuccess -> {
-                Toast.makeText(requireContext(),"QR SUCCESS",Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(),"Exploration complétée",Toast.LENGTH_LONG).show()
                 GenerateExploration(qrResult.content.rawValue)
             }
             is QRResult.QRUserCanceled -> {
