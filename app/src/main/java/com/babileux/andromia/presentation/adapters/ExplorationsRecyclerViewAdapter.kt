@@ -28,8 +28,9 @@ class ExplorationsRecyclerViewAdapter(
         holder.bind(exploration)
 
         holder.itemView.setOnClickListener {
-            onExplorationClick(exploration)
+            //onExplorationClick(exploration)
         }
+
     }
     override fun getItemCount() = explorations.size
 
@@ -64,6 +65,9 @@ class ExplorationsRecyclerViewAdapter(
                     creatureEnemyImg.setImageResource(R.drawable.none)
                 }
                 setNotUseElement(binding)
+                btnCombattre.setOnClickListener {
+                    onExplorationClick(exploration)
+                }
             }
         }
     }
@@ -72,7 +76,7 @@ class ExplorationsRecyclerViewAdapter(
 
     fun applyElementValue(e : Element, binding : ItemExplorationBinding){
         when(e.element) {
-            "A" -> binding.textViewA.text = "+" + e.quantity.toString()
+            "A" -> binding.textViewA.text = "+${e.quantity}"
             "B" -> binding.textViewB.text = "+" + e.quantity.toString()
             "E" -> binding.textViewE.text = "+" + e.quantity.toString()
             "Ex" -> binding.textViewEx.text = "+" + e.quantity.toString()

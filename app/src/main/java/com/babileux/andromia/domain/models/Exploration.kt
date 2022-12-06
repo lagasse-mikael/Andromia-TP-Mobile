@@ -11,4 +11,4 @@ data class Exploration(
     val creature: Creature? = null,
     val creatureHasBeenFought: Boolean = false
     //val combat : Combat
-)
+):java.io.Serializable

@@ -9,6 +9,7 @@ import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.babileux.andromia.R
@@ -18,6 +19,7 @@ import com.babileux.andromia.databinding.FragmentListExplorationsBinding
 import com.babileux.andromia.domain.models.Exploration
 import com.babileux.andromia.presentation.adapters.ExplorationsRecyclerViewAdapter
 import com.babileux.andromia.presentation.ui.creatures.ExplorationsViewModel
+import com.babileux.andromia.presentation.ui.explorations.ExplorationsFragmentDirections
 import io.github.g00fy2.quickie.QRResult
 import io.github.g00fy2.quickie.ScanQRCode
 import io.github.g00fy2.quickie.content.QRContent
@@ -101,7 +103,8 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
     }
 
     fun onRecyclerViewExplorationClick(exploration: Exploration) {
-
+        val action = ExplorationsFragmentDirections.actionNavigationExplorationsToCombatsFragment(exploration)
+        findNavController().navigate(action)
     }
 
 
