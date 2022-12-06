@@ -80,8 +80,6 @@ class CreatureRecyclerViewAdapter(
                         .load(creature.asset)
                         .into(imvCreature)
                 }
-
-            //TODO: GLIDE POUR LIMAGE
             }
         }
     }
