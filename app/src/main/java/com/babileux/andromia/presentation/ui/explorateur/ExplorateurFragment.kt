@@ -38,6 +38,9 @@ class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
         viewModel.userConnected.observe(viewLifecycleOwner) {
             binding.txvUsername.text = it.username
             binding.txvInox.text = it.nbInox.toString()
+            if(it.location.isNotEmpty()){
+                binding.txvLocation.text = it.location
+            }
         }
 
 

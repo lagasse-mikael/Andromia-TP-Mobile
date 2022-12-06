@@ -30,7 +30,7 @@ class CreationCompteActivity : AppCompatActivity() {
                 }
                 is Resource.Success -> {
                     Toast.makeText(this, "Créer", Toast.LENGTH_LONG).show()
-                    viewModel.save(it.data!!.tokens, it.data.username, it.data.vault.inox)
+                    viewModel.save(it.data!!.tokens, it.data.username, it.data.vault.inox, it.data!!.location)
                     val mainActivityIntent = MainActivity.newIntent(this)
                     startActivity(mainActivityIntent)
                 }

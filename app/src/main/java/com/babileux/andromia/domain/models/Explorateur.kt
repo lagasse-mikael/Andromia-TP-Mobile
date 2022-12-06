@@ -7,6 +7,7 @@ data class Explorateur(
     val username:String="",
     val password:String="",
     val email:String="",
+    val location:String="",
     val vault: Vault = Vault(),
     val explorations: List<Exploration> = listOf(),
     val tokens: UserConnected = UserConnected()

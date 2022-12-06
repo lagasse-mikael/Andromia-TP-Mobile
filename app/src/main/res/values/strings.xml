@@ -17,4 +17,6 @@
     <string name="noexplorations">Aucunes explorations, tu peux en ajouter en cliquant sur le +</string>
     <string name="combattre">Combattre</string>
     <string name="Combattue">Combattue</string>
+    <string name="creature_de_combat">Créature de Combat</string>
+    <string name="pas_de_location">Pas de location</string>
 </resources>

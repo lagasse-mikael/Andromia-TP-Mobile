@@ -48,14 +48,16 @@ class LoginRepository(private val context: Context) {
         val REFRESHTOKEN = stringPreferencesKey("refreshToken")
         val USERNAME =  stringPreferencesKey("username")
         val NBINOX =  intPreferencesKey("inox")
+        val LOCATION = stringPreferencesKey("location")
     }
 
     val userConnected: Flow<UserConnected> = context.dataStore.data.map{ preferences ->
         val accessToken = preferences[PreferencesKeys.TOKEN]?: ""
         val refreshToken = preferences[PreferencesKeys.REFRESHTOKEN]?: ""
         val username = preferences[PreferencesKeys.USERNAME]?:""
+        val location = preferences[PreferencesKeys.LOCATION]?:""
         val nbInox = preferences[PreferencesKeys.NBINOX]?:0
-        UserConnected(accessToken, refreshToken, username, nbInox)
+        UserConnected(accessToken, refreshToken, username, nbInox, location)
     }
 
     /*val user = context.dataStore.data.map{ preferences ->
@@ -80,11 +82,12 @@ class LoginRepository(private val context: Context) {
         }
     }
 
-    suspend fun save(tokens: UserConnected, username:String, nbInox:Int) {
+    suspend fun save(tokens: UserConnected, username:String, nbInox:Int, location:String) {
         context.dataStore.edit { preferences ->
             preferences[PreferencesKeys.TOKEN] = tokens.access_token
             preferences[PreferencesKeys.REFRESHTOKEN] = tokens.refresh_token
             preferences[PreferencesKeys.USERNAME] = username
+            preferences[PreferencesKeys.LOCATION] = location
             preferences[PreferencesKeys.NBINOX] = nbInox
         }
         //startTokenWork(tokens.access_token,tokens.refresh_token)
