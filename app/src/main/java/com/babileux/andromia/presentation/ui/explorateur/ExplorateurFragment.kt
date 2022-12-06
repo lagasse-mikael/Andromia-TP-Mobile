@@ -31,7 +31,7 @@ class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
         ctlMainActivity = requireActivity().findViewById(R.id.ctlMainActivity)
 
         binding.rcvVault.apply {
-            layoutManager = GridLayoutManager(requireContext(), 2)
+            layoutManager = GridLayoutManager(requireContext(), 3)
             adapter = vaultRecycleViewAdapter
         }
 
