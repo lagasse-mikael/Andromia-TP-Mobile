@@ -31,8 +31,6 @@ class VaultRecyclerViewAdapter(var elements: List<Element>)
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ItemElementBinding.bind(view)
-
-
         @SuppressLint("DiscouragedApi")
         fun bind(element: Element) {
             val imgRes = "element_${element.element}"
@@ -41,14 +39,6 @@ class VaultRecyclerViewAdapter(var elements: List<Element>)
             binding.txvElementName.text = element.element
             binding.txvQuantityElement.text = element.quantity.toString()
             binding.imvElementLogo.setImageResource(ressourceId)
-
-
-            //TODO: GLIDE POUR LIMAGE
-
-            // Exemple de glide
-            //Glide.with(binding.root.context).load(creature.asset).into(binding.imvCreature)
-
-
 
         }
     }
