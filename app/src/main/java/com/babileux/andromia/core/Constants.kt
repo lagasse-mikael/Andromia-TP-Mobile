@@ -11,6 +11,7 @@ object Constants {
         const val LOGIN = "${BASE_API}/explorers/login"
         const val CREATURES = "${BASE_API}/explorers/creatures"
         const val EXPLORATION = "${BASE_API}/explorations/"
+        const val COMBAT = "${BASE_API}/combats/combat"
         const val USER_EXPLORATION = "${BASE_API}/explorers/explorations"
         const val TOKENS = "${BASE_API}/refresh"
         const val COMBATCREATURE = "${BASE_API}/explorers/combatCreature"

@@ -53,5 +53,13 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
         Glide.with(requireContext())
             .load(args.exploration.creature!!.asset)
             .into(binding.creatureEnemyImg)
+        binding.btnFight.setOnClickListener {
+            val enemy = args.exploration.creature
+            //val buddy =
+            if (enemy != null) {
+
+                viewModel.generateFight(enemy)
+            }
+        }
     }
 }

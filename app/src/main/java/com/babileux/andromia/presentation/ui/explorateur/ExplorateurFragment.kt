@@ -1,5 +1,6 @@
 package com.babileux.andromia.presentation.ui.explorateur
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
@@ -13,7 +14,7 @@ import com.babileux.andromia.core.LoadingResource
 import com.babileux.andromia.databinding.FragmentExplorateurBinding
 import com.babileux.andromia.presentation.adapters.VaultRecyclerViewAdapter
 import com.babileux.andromia.core.notifyAllItemChanged
-import com.babileux.andromia.data.repositories.LoginRepository
+import com.babileux.andromia.presentation.ui.login.LoginActivity
 
 
 class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
@@ -59,7 +60,11 @@ class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
                 }
             }
         }
-    }
+        binding.btnDeconnecter.setOnClickListener {
+            val intent = Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
 
+        }
+    }
 
 }
