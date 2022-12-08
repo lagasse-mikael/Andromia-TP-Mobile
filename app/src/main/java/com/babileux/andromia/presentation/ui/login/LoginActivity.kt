@@ -1,15 +1,16 @@
 package com.babileux.andromia.presentation.ui.login
 
-import android.content.ClipData.newIntent
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.babileux.andromia.R
 import com.babileux.andromia.core.Resource
 import com.babileux.andromia.databinding.ActivityLoginBinding
 import com.babileux.andromia.presentation.MainActivity
 import com.babileux.andromia.presentation.ui.creation.CreationCompteActivity
+import com.babileux.andromia.presentation.ui.explorateur.ExplorateurFragment
 
 class LoginActivity : AppCompatActivity() {
 
@@ -60,7 +61,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-
+    companion object {
+        fun newIntent(context: Context) : Intent {
+            return Intent(context, LoginActivity::class.java)
+        }
+    }
 
 
 }
