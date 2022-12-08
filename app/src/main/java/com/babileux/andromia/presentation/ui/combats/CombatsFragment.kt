@@ -25,6 +25,7 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
         binding.txtPowerPointEnemy.text = args.exploration.creature!!.stats.power.toString()
         binding.txtShieldPointEnemy.text = args.exploration.creature!!.stats.shield.toString()
         binding.txtSpeedPointEnemy.text = args.exploration.creature!!.stats.speed.toString()
+        binding.txvCreatureEnemy.text = args.exploration.creature!!.name
         Glide.with(requireContext())
             .load(args.exploration.creature!!.asset)
             .into(binding.creatureEnemyImg)

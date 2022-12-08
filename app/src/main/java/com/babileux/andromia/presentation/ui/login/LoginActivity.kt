@@ -36,8 +36,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-
-
         binding.btnConnecter.setOnClickListener {
             
             when (binding.usernameField.text.toString().trim().isEmpty() || binding.passwordField.text!!.toString().trim().isEmpty()) {
@@ -58,9 +56,4 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
-
-
-
-
-
 }
