@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class CombatsViewModel (application: Application, private val exploration: Exploration): AndroidViewModel(application)   {
+    private val combatRepository = CombatRepository()
     private val explorateurRepository = ExplorateurRepository()
     private val loginRepository = LoginRepository(application)
 
@@ -33,5 +34,12 @@ class CombatsViewModel (application: Application, private val exploration: Explo
             return modelClass.getConstructor(Application::class.java, Exploration::class.java).newInstance(application, exploration)
         }
     }
+    fun generateFight(enemy : Creature) {
 
+        viewModelScope.launch {
+            val tokens = loginRepository.userConnected.first()
+            combatRepository.generateFight(enemy, tokens.access_token, tokens.username)
+        }
+
+    }
 }
