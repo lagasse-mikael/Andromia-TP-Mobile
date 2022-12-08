@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 
 class CombatsViewModel (application: Application, private val exploration: Exploration): AndroidViewModel(application)   {
     private val combatRepository = CombatRepository()
+    private val loginRepository = LoginRepository(application)
 
 
     private val _creatures = MutableLiveData<LoadingResource<List<Creature>>>()
@@ -28,4 +29,13 @@ class CombatsViewModel (application: Application, private val exploration: Explo
         }
     }
 
+
+    fun generateFight(enemy : Creature) {
+
+        viewModelScope.launch {
+            val tokens = loginRepository.userConnected.first()
+            combatRepository.generateFight(enemy, tokens.access_token, tokens.username)
+        }
+
+    }
 }
