@@ -14,18 +14,16 @@ import kotlinx.coroutines.withContext
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 class CombatDataSource {
     private val json = Json { ignoreUnknownKeys = true }
 
     suspend fun generateFight(enemy : Creature, token: String, username : String) : Combat {
         return withContext(Dispatchers.IO) {
-
-            val combat = object {
-                val enemy = enemy
-                val username = username
-                val buddy = "ALLY"
-            }
+            val current = ""
+            val combat = Combat(username, enemy, enemy, current, false)
             val (request, response, result) = Constants.BaseURL.COMBAT.httpPost()
                 .jsonBody(Json.encodeToString(combat)).authentication().bearer(token).responseJson()
             when (result) {
