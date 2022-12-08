@@ -22,12 +22,10 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
     }
 
     fun LogUser(username: String, password : String) {
-
         viewModelScope.launch {
             val explorateur = Explorateur(username, password)
             _explorateurResponse.value = loginRepository.retrieve(explorateur)
         }
-
     }
 
     fun save (tokens: UserConnected, username:String, nbInox: Int, location : String) {
