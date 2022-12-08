@@ -30,7 +30,6 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         explorationsRecyclerViewAdapter = ExplorationsRecyclerViewAdapter(listOf(), ::onRecyclerViewExplorationClick)
 
         binding.rcvExplorations.apply {
