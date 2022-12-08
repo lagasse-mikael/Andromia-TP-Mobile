@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.babileux.andromia.R
 import com.babileux.andromia.core.DateHelper
 import com.babileux.andromia.databinding.ItemExplorationBinding
+import com.babileux.andromia.domain.models.Creature
 import com.babileux.andromia.domain.models.Element
 import com.babileux.andromia.domain.models.Exploration
 import com.bumptech.glide.Glide

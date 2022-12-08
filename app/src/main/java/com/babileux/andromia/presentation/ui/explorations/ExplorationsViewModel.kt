@@ -16,11 +16,7 @@ import kotlinx.coroutines.launch
 
 class ExplorationsViewModel(application: Application): AndroidViewModel(application){
     private val explorationRepository = ExplorationRepository()
-    private val explorateurRepository = ExplorateurRepository()
     private val loginRepository = LoginRepository(application)
-
-    private val _combatCreature = MutableLiveData<LoadingResource<Creature>>()
-    val combatCreature: LiveData<LoadingResource<Creature>> get() = _combatCreature
 
     private val _exploration = MutableLiveData<LoadingResource<List<Exploration>>>()
     val exploration: LiveData<LoadingResource<List<Exploration>>> get() = _exploration
@@ -30,13 +26,6 @@ class ExplorationsViewModel(application: Application): AndroidViewModel(applicat
             val tokens = loginRepository.userConnected.first()
             explorationRepository.retriveExploration(tokens.access_token).collect{
                 _exploration.value = it
-            }
-        }
-
-        viewModelScope.launch{
-            val tokens = loginRepository.userConnected.first()
-            explorateurRepository.retrieveExplorerCombatCreature(tokens.access_token).collect {
-
             }
         }
     }
