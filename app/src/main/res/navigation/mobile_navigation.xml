@@ -35,8 +35,5 @@
         <argument
             android:name="exploration"
             app:argType="com.babileux.andromia.domain.models.Exploration" />
-        <argument
-            android:name="combatCreature"
-            app:argType="com.babileux.andromia.domain.models.Creature" />
     </fragment>
 </navigation>
