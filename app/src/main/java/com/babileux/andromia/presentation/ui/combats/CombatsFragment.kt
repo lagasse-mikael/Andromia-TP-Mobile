@@ -11,11 +11,13 @@ import com.babileux.andromia.R
 import com.babileux.andromia.core.LoadingResource
 import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.FragmentCombatsBinding
+import com.babileux.andromia.domain.models.Creature
 import com.bumptech.glide.Glide
 
 class CombatsFragment : Fragment(R.layout.fragment_combats) {
     private val binding: FragmentCombatsBinding by viewBinding()
     private val args : CombatsFragmentArgs by navArgs()
+    lateinit var buddy : Creature
 
     private val viewModel: CombatsViewModel by viewModels {
         CombatsViewModel.Factory(requireActivity().application, args.exploration)
@@ -41,6 +43,7 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
                     Glide.with(requireContext())
                         .load(it.data?.asset)
                         .into(binding.imageViewCreatureUser)
+                    buddy = it.data!!
                 }
             }
         }
@@ -55,10 +58,11 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
             .into(binding.creatureEnemyImg)
         binding.btnFight.setOnClickListener {
             val enemy = args.exploration.creature
+
             //val buddy =
             if (enemy != null) {
 
-                viewModel.generateFight(enemy)
+                viewModel.generateFight(enemy, buddy)
             }
         }
     }

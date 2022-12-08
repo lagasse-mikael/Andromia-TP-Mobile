@@ -20,10 +20,10 @@ import java.time.LocalDateTime
 class CombatDataSource {
     private val json = Json { ignoreUnknownKeys = true }
 
-    suspend fun generateFight(enemy : Creature, token: String, username : String) : Combat {
+    suspend fun generateFight(enemy : Creature, buddy : Creature, token: String, username : String) : Combat {
         return withContext(Dispatchers.IO) {
             val current = ""
-            val combat = Combat(username, enemy, enemy, current, false)
+            val combat = Combat(username, enemy, buddy, current, false)
             val (request, response, result) = Constants.BaseURL.COMBAT.httpPost()
                 .jsonBody(Json.encodeToString(combat)).authentication().bearer(token).responseJson()
             when (result) {

@@ -34,11 +34,11 @@ class CombatsViewModel (application: Application, private val exploration: Explo
             return modelClass.getConstructor(Application::class.java, Exploration::class.java).newInstance(application, exploration)
         }
     }
-    fun generateFight(enemy : Creature) {
+    fun generateFight(enemy : Creature, buddy : Creature) {
 
         viewModelScope.launch {
             val tokens = loginRepository.userConnected.first()
-            combatRepository.generateFight(enemy, tokens.access_token, tokens.username)
+            combatRepository.generateFight(enemy, buddy,  tokens.access_token, tokens.username)
         }
 
     }
