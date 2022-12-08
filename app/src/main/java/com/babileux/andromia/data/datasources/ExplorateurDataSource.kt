@@ -3,6 +3,7 @@ package com.babileux.andromia.data.datasources
 import android.util.Log
 import com.babileux.andromia.core.Constants
 import com.babileux.andromia.data.repositories.LoginRepository
+import com.babileux.andromia.domain.models.Creature
 import com.babileux.andromia.domain.models.Vault
 import com.github.kittinunf.fuel.core.extensions.authentication
 import com.github.kittinunf.fuel.httpGet
@@ -24,6 +25,20 @@ class ExplorateurDataSource {
             //Log.d("test",LoginRepository.PreferencesKeys.TOKEN.toString())
 
             val (_, _, result) = Constants.BaseURL.VAULT.httpGet().authentication().bearer(accessToken).responseJson()
+            when(result) {
+                is Result.Success -> {
+                    return@withContext json.decodeFromString(result.value.content)
+                }
+                is Result.Failure -> {
+                    throw result.error.exception
+                }
+            }
+        }
+    }
+
+    suspend fun retriveCombatCreature(accessToken: String) : Creature {
+        return withContext(Dispatchers.IO) {
+            val (_,_, result) = Constants.BaseURL.COMBATCREATURE.httpGet().authentication().bearer(accessToken).responseJson()
             when(result) {
                 is Result.Success -> {
                     return@withContext json.decodeFromString(result.value.content)

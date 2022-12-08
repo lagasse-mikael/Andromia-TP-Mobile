@@ -15,4 +15,4 @@ data class Creature(
     val affinity: String="",
     val essence: Int,
     val asset: String=""
-)
+):java.io.Serializable

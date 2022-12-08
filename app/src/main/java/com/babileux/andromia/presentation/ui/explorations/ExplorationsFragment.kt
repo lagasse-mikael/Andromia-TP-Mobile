@@ -1,16 +1,12 @@
 package com.babileux.andromia.presentation.ui.explorations
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.babileux.andromia.R
 import com.babileux.andromia.core.LoadingResource
@@ -19,10 +15,8 @@ import com.babileux.andromia.databinding.FragmentListExplorationsBinding
 import com.babileux.andromia.domain.models.Exploration
 import com.babileux.andromia.presentation.adapters.ExplorationsRecyclerViewAdapter
 import com.babileux.andromia.presentation.ui.creatures.ExplorationsViewModel
-import com.babileux.andromia.presentation.ui.explorations.ExplorationsFragmentDirections
 import io.github.g00fy2.quickie.QRResult
 import io.github.g00fy2.quickie.ScanQRCode
-import io.github.g00fy2.quickie.content.QRContent
 
 class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
 
@@ -87,12 +81,12 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
             is QRResult.QRMissingPermission -> {
                 Toast.makeText(
                     requireContext(),
-                    "Tu n'a pas les permissions",
+                    "Tu n'as pas les permissions",
                     Toast.LENGTH_LONG
                 ).show()
             }
             is QRResult.QRError -> {
-                Toast.makeText(requireContext(), "Ca marche pas", Toast.LENGTH_LONG)
+                Toast.makeText(requireContext(), "Problème lors de la création de l'exploration", Toast.LENGTH_LONG)
                     .show()
             }
         }
@@ -106,13 +100,5 @@ class ExplorationsFragment : Fragment(R.layout.fragment_list_explorations) {
         val action = ExplorationsFragmentDirections.actionNavigationExplorationsToCombatsFragment(exploration)
         findNavController().navigate(action)
     }
-
-
-
-
-
-
-
-
 
 }
