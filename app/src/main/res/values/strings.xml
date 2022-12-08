@@ -19,4 +19,6 @@
     <string name="Combattue">Combattue</string>
     <string name="creature_de_combat">Créature de Combat</string>
     <string name="pas_de_location">Pas de location</string>
+    <string name="creature_enemie">Créature ennemie</string>
+    <string name="votre_creature">Votre créature</string>
 </resources>

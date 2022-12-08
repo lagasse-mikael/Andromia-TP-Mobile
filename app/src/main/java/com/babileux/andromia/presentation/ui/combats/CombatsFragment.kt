@@ -21,7 +21,6 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.txtLifePointEnemy.text = args.exploration.creature!!.stats.life.toString()
         binding.txtPowerPointEnemy.text = args.exploration.creature!!.stats.power.toString()
         binding.txtShieldPointEnemy.text = args.exploration.creature!!.stats.shield.toString()
@@ -29,11 +28,5 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
         Glide.with(requireContext())
             .load(args.exploration.creature!!.asset)
             .into(binding.creatureEnemyImg)
-
     }
-
-
-
-
-
 }
