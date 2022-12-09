@@ -21,8 +21,8 @@ class CombatRepository {
     private val combatDataSource = CombatDataSource()
 
 
-    suspend fun generateFight(enemy : Creature, buddy: Creature, token: String, username : String) {
-        combatDataSource.generateFight(enemy, buddy, token, username)
+    suspend fun generateFight(buddy: Creature,enemy : Creature,  token: String, username : String) {
+        combatDataSource.generateFight(buddy,enemy,token, username)
     }
 }
 

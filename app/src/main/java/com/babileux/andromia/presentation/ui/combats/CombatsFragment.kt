@@ -1,6 +1,9 @@
 package com.babileux.andromia.presentation.ui.combats
 
 import android.os.Bundle
+import android.util.Log
+import android.util.Log.DEBUG
+import android.util.Log.INFO
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
@@ -13,6 +16,7 @@ import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.FragmentCombatsBinding
 import com.babileux.andromia.domain.models.Creature
 import com.bumptech.glide.Glide
+import kotlin.math.log
 
 class CombatsFragment : Fragment(R.layout.fragment_combats) {
     private val binding: FragmentCombatsBinding by viewBinding()
@@ -61,8 +65,9 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
 
             //val buddy =
             if (enemy != null) {
-
-                viewModel.generateFight(enemy, buddy)
+                Log.i(buddy.toString(),"friend");
+                Log.i(enemy.toString(),"enemy");
+                viewModel.generateFight(buddy,enemy )
             }
         }
     }
