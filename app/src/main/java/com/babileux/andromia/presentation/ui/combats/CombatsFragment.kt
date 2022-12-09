@@ -65,8 +65,6 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
 
             //val buddy =
             if (enemy != null) {
-                Log.i(buddy.toString(),"friend");
-                Log.i(enemy.toString(),"enemy");
                 viewModel.generateFight(buddy,enemy )
             }
         }
