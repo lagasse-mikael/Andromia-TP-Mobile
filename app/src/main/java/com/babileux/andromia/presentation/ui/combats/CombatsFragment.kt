@@ -1,5 +1,6 @@
 package com.babileux.andromia.presentation.ui.combats
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.util.Log.DEBUG
@@ -12,9 +13,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.babileux.andromia.R
 import com.babileux.andromia.core.LoadingResource
+import com.babileux.andromia.core.Resource
 import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.FragmentCombatsBinding
 import com.babileux.andromia.domain.models.Creature
+import com.babileux.andromia.presentation.MainActivity
 import com.bumptech.glide.Glide
 import kotlin.math.log
 
@@ -28,8 +31,24 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.combatResponse.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Error -> {
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                }
+                is Resource.Success -> {
+                    Toast.makeText(requireContext(), "Combat effectué", Toast.LENGTH_LONG).show()
+                     if(it.data!!.userWon)
+                         binding.txtResultat.text ="Vous avez Gagné"
+                    else
+                        binding.txtResultat.text ="Vous avez perdu lol";
+                }
+            }
+        }
 
         viewModel.combatCreature.observe(viewLifecycleOwner) {
             when (it) {
@@ -65,7 +84,7 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
 
             //val buddy =
             if (enemy != null) {
-                viewModel.generateFight(buddy,enemy )
+                viewModel.generateFight(buddy,enemy)
             }
         }
     }

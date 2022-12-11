@@ -6,8 +6,8 @@ import java.util.Date
 @Serializable
 data class Combat(
     val explorerUsername:String="",
-    val explorerCreature: Creature,
-    val foundCreature: Creature,
+    val explorerCreature: Creature?=null,
+    val foundCreature: Creature?=null,
     val combatDate: String,
     val userWon: Boolean = false
 )
