@@ -3,10 +3,12 @@ package com.babileux.andromia.data.datasources
 import android.util.Log
 import com.babileux.andromia.core.Constants
 import com.babileux.andromia.data.repositories.LoginRepository
+import com.babileux.andromia.domain.models.Explorateur
 import com.babileux.andromia.domain.models.Exploration
 import com.github.kittinunf.fuel.core.extensions.authentication
 import com.github.kittinunf.fuel.core.extensions.jsonBody
 import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.fuel.httpPatch
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.fuel.json.responseJson
 import com.github.kittinunf.result.Result
@@ -17,6 +19,7 @@ import kotlinx.coroutines.withContext
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import kotlin.math.log
 
 class ExplorationDataSource {
 
@@ -49,6 +52,24 @@ class ExplorationDataSource {
             when (result) {
                 is Result.Success -> {
                     return@withContext json.decodeFromString(result.value.content)
+                }
+                is Result.Failure -> {
+                    throw result.error.exception
+
+                }
+            }
+        }
+    }
+
+    suspend fun setFightResult(accessToken: String, exploration:Exploration): Exploration  {
+        return withContext(Dispatchers.IO) {
+            val explorationInfos = Json.encodeToString(exploration)
+            val (request, response, result) = Constants.BaseURL.SETRESULT.httpPatch().jsonBody(explorationInfos).authentication()
+                .bearer(accessToken).responseJson()
+            Log.i(request.toString(),"le request")
+            when (result) {
+                is Result.Success -> {
+                    return@withContext json.decodeFromString<Exploration>(result.value.content)
                 }
                 is Result.Failure -> {
                     throw result.error.exception

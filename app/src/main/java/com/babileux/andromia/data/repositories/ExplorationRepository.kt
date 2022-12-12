@@ -2,6 +2,7 @@ package com.babileux.andromia.data.repositories
 
 import com.babileux.andromia.core.Constants
 import com.babileux.andromia.core.LoadingResource
+import com.babileux.andromia.core.Resource
 import com.babileux.andromia.data.datasources.ExplorateurDataSource
 import com.babileux.andromia.data.datasources.ExplorationDataSource
 import com.babileux.andromia.domain.models.Element
@@ -28,6 +29,16 @@ class ExplorationRepository {
             }
         }
     }
+
+    suspend fun setResult(token: String ,exploration: Exploration): Resource<Exploration> {
+        return try{
+            Resource.Success(explorationDataSource.setFightResult(token, exploration))
+        } catch(ex:Exception){
+            Resource.Error(ex,ex.message)
+        }
+    }
+
+
 
    suspend fun GenerateExploration(token: String ,qrCode: String) {
         explorationDataSource.GenerateExploration(token, qrCode)

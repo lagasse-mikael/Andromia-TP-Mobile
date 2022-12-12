@@ -1,6 +1,7 @@
 package com.babileux.andromia.presentation.ui.combats
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Log.DEBUG
@@ -10,6 +11,7 @@ import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.babileux.andromia.R
 import com.babileux.andromia.core.LoadingResource
@@ -18,6 +20,8 @@ import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.FragmentCombatsBinding
 import com.babileux.andromia.domain.models.Creature
 import com.babileux.andromia.presentation.MainActivity
+import com.babileux.andromia.presentation.ui.explorateur.ExplorateurFragment
+import com.babileux.andromia.presentation.ui.login.LoginActivity
 import com.bumptech.glide.Glide
 import kotlin.math.log
 
@@ -42,8 +46,15 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
                 }
                 is Resource.Success -> {
                     Toast.makeText(requireContext(), "Combat effectué", Toast.LENGTH_LONG).show()
-                     if(it.data!!.userWon)
+                     if(it.data!!.userWon){
                          binding.txtResultat.text ="Vous avez Gagné"
+                         binding.btnFight.text = "Retour"
+                         viewModel.setResult(args.exploration)
+                         binding.btnFight.setOnClickListener {
+                             findNavController().navigate(R.id.navigation_explorations)
+                         }
+                     }
+
                     else
                         binding.txtResultat.text ="Vous avez perdu lol";
                 }
