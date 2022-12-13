@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
                 }
                 is Resource.Success -> {
                     Toast.makeText(this, "Login in", Toast.LENGTH_LONG).show()
-                    viewModel.save(it.data!!.tokens, it.data.username, it.data.vault.inox, it.data!!.location)
+                    viewModel.save(it.data!!.tokens, it.data.username, it.data.vault.inox, it.data!!.location, it.data!!.combatCreature!!.uuid)
                     val mainActivityIntent = MainActivity.newIntent(this)
                     startActivity(mainActivityIntent)
                 }
@@ -52,7 +52,6 @@ class LoginActivity : AppCompatActivity() {
         binding.btnCreer.setOnClickListener {
             val creationCompteActivityIntent = CreationCompteActivity.newIntent(this)
             startActivity(creationCompteActivityIntent)
-            
         }
 
     }

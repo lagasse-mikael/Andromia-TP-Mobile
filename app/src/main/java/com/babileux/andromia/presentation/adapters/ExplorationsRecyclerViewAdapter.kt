@@ -1,16 +1,11 @@
 package com.babileux.andromia.presentation.adapters
 
-import android.graphics.drawable.Drawable
-import android.view.View
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.babileux.andromia.R
 import com.babileux.andromia.core.DateHelper
 import com.babileux.andromia.databinding.ItemExplorationBinding
-import com.babileux.andromia.domain.models.Creature
 import com.babileux.andromia.domain.models.Element
 import com.babileux.andromia.domain.models.Exploration
 import com.bumptech.glide.Glide

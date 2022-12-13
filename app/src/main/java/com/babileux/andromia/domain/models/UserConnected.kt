@@ -7,6 +7,7 @@ data class UserConnected(
     val refresh_token: String ="",
     val username: String ="",
     val nbInox: Int = 0,
-    val location: String=""
+    val location: String="",
+    val combatCreatureUUID: String=""
 )
 

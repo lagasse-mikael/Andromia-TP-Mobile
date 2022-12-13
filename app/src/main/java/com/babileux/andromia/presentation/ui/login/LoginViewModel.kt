@@ -28,9 +28,9 @@ class LoginViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun save (tokens: UserConnected, username:String, nbInox: Int, location : String) {
+    fun save (tokens: UserConnected, username:String, nbInox: Int, location : String, combatCreatureUUID:String) {
         viewModelScope.launch {
-            loginRepository.save(tokens, username, nbInox, location)
+            loginRepository.save(tokens, username, nbInox, location,combatCreatureUUID)
         }
     }
 }

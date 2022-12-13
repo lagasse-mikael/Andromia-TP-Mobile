@@ -44,8 +44,6 @@ class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
             }
         }
 
-
-
         viewModel.exploraterVault.observe(viewLifecycleOwner) {
             when (it) {
                 is LoadingResource.Error -> {
@@ -63,7 +61,6 @@ class ExplorateurFragment : Fragment(R.layout.fragment_explorateur) {
         binding.btnDeconnecter.setOnClickListener {
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
-
         }
     }
 
