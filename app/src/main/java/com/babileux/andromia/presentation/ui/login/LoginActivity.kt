@@ -52,7 +52,6 @@ class LoginActivity : AppCompatActivity() {
         binding.btnCreer.setOnClickListener {
             val creationCompteActivityIntent = CreationCompteActivity.newIntent(this)
             startActivity(creationCompteActivityIntent)
-            
         }
 
     }

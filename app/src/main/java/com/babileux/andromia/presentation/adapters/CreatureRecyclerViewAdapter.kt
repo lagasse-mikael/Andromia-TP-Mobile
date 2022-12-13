@@ -1,26 +1,22 @@
 package com.babileux.andromia.presentation.adapters
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
-import androidx.recyclerview.widget.RecyclerView
-import com.babileux.andromia.R
-import com.babileux.andromia.domain.models.Creature
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
-import com.babileux.andromia.core.loadFromResource
+import androidx.recyclerview.widget.RecyclerView
+import com.babileux.andromia.R
+import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.ItemCreatureBinding
-import com.babileux.andromia.domain.models.Element
+import com.babileux.andromia.domain.models.Creature
 import com.bumptech.glide.Glide
 
 
 class CreatureRecyclerViewAdapter(
-    var creatures: List<Creature> = listOf()) : RecyclerView.Adapter<CreatureRecyclerViewAdapter.ViewHolder>()
+    var creatures: List<Creature> = listOf(),
+    private val setCombatCreature: (Creature) -> Unit) : RecyclerView.Adapter<CreatureRecyclerViewAdapter.ViewHolder>()
 {
-
+    private var combatCreatureUUID: String? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_creature, parent, false)
@@ -30,7 +26,6 @@ class CreatureRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val sauce = creatures[position]
         holder.bind(sauce)
-
     }
 
     override fun getItemCount() = creatures.size
@@ -38,10 +33,17 @@ class CreatureRecyclerViewAdapter(
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ItemCreatureBinding.bind(view)
 
-
         fun bind(creature: Creature) {
             with(binding){
-                if(creature != null) {
+
+                binding.btnSetCombatCreature.setOnClickListener{
+                    setCombatCreature(creature)
+                }
+                    if(combatCreatureUUID == creature.uuid){
+                        btnSetCombatCreature.text = "Créature choisie"
+                        btnSetCombatCreature.isEnabled = false
+                    }
+
                     nameCreature.text = creature.name
                     txvValueLife.text = creature.stats.life.toString()
                     txvValuePower.text = creature.stats.power.toString()
@@ -79,10 +81,20 @@ class CreatureRecyclerViewAdapter(
                     Glide.with(root.context)
                         .load(creature.asset)
                         .into(imvCreature)
-                }
+
             }
         }
+
     }
 
+    fun updateCombatCreature(creature: Creature) {
+        for (c in this.creatures){
+            if(c.uuid == creature.uuid){
+                combatCreatureUUID = c.uuid
+                break;
+            }
+        }
+        notifyAllItemChanged()
+    }
 
 }

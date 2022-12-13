@@ -15,23 +15,27 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.babileux.andromia.R
 import com.babileux.andromia.core.LoadingResource
+import com.babileux.andromia.core.Resource
 import com.babileux.andromia.core.loadFromResource
 import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.FragmentListCreaturesBinding
 import com.babileux.andromia.domain.models.Creature
+import com.babileux.andromia.domain.models.Exploration
 import com.babileux.andromia.presentation.adapters.CreatureRecyclerViewAdapter
+import com.babileux.andromia.presentation.ui.explorations.ExplorationsFragmentDirections
 
 
 class CreaturesFragment : Fragment(R.layout.fragment_list_creatures) {
 
     private val binding: FragmentListCreaturesBinding by viewBinding()
     private val viewModel: CreaturesViewModel by viewModels()
-    private val creatureRecycleViewAdapter = CreatureRecyclerViewAdapter(listOf())
+    private val creatureRecycleViewAdapter = CreatureRecyclerViewAdapter(listOf(), ::setCombatCreature)
     private lateinit var ctlMainActivity: ConstraintLayout
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ctlMainActivity = requireActivity().findViewById(R.id.ctlMainActivity)
+
 
         binding.rcvCreature.apply {
             layoutManager = GridLayoutManager(requireContext(), 1)
@@ -50,6 +54,7 @@ class CreaturesFragment : Fragment(R.layout.fragment_list_creatures) {
                     if(it.data!!.isNotEmpty()){
                         creatureRecycleViewAdapter.creatures = it.data!!
                         creatureRecycleViewAdapter.notifyAllItemChanged()
+
                         binding.rcvCreature.visibility = View.VISIBLE
                         binding.txvPasCreature.visibility = View.INVISIBLE
                     } else {
@@ -59,6 +64,23 @@ class CreaturesFragment : Fragment(R.layout.fragment_list_creatures) {
                 }
             }
         }
+
+        viewModel.explorer.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Error -> {
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                }
+                is Resource.Success -> {
+                    creatureRecycleViewAdapter.updateCombatCreature(it.data!!.combatCreature!!)
+                    Toast.makeText(requireContext(), "Nouvelle créature de combat assignée", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
+
     }
 
+    fun setCombatCreature(creature: Creature) {
+       viewModel.setCombatCreature(creature)
+    }
 }

@@ -2,8 +2,10 @@ package com.babileux.andromia.data.repositories
 
 import com.babileux.andromia.core.Constants
 import com.babileux.andromia.core.LoadingResource
+import com.babileux.andromia.core.Resource
 import com.babileux.andromia.data.datasources.ExplorateurDataSource
 import com.babileux.andromia.domain.models.Creature
+import com.babileux.andromia.domain.models.Explorateur
 import com.babileux.andromia.domain.models.Vault
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -37,6 +39,14 @@ class ExplorateurRepository {
                 delay(Constants.COMBATCREATUREDELAY)
             }
 
+        }
+    }
+
+    suspend fun setCombatCreature(accessToken: String, combatCreature: Creature) : Resource<Explorateur> {
+        return try{
+            Resource.Success(explorateurDataSource.setCombatCreature(accessToken, combatCreature))
+        } catch (ex:Exception) {
+            Resource.Error(ex)
         }
     }
 
