@@ -1,8 +1,6 @@
 package com.babileux.andromia.data.datasources
 
-import android.util.Log
 import com.babileux.andromia.core.Constants
-import com.babileux.andromia.data.repositories.LoginRepository
 import com.babileux.andromia.domain.models.Creature
 import com.babileux.andromia.domain.models.Explorateur
 import com.babileux.andromia.domain.models.Vault
@@ -13,7 +11,6 @@ import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.fuel.json.responseJson
 import com.github.kittinunf.result.Result
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
@@ -51,10 +48,10 @@ class ExplorateurDataSource {
         }
     }
 
-    suspend fun setCombatCreature (accessToken: String, combatCreature: Creature) : Explorateur {
+    suspend fun setCombatCreature (accessToken: String, combatCreatureUUID: String) : Explorateur {
         return withContext(Dispatchers.IO) {
-            val combatCreature = Json.encodeToString(combatCreature)
-            val (_,_, result) = Constants.BaseURL.COMBATCREATURE.httpPost().jsonBody(combatCreature).authentication().bearer(accessToken).responseJson()
+            //val combatCreature = Json.encodeToString(combatCreatureUUID)
+            val (_,_, result) = Constants.BaseURL.COMBATCREATURE.httpPost().jsonBody("{\"uuid\" :\"${combatCreatureUUID}\"}").authentication().bearer(accessToken).responseJson()
             when(result) {
                 is Result.Success -> {
                     return@withContext json.decodeFromString(result.value.content)

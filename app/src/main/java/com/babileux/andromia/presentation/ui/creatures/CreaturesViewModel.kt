@@ -29,7 +29,8 @@ class CreaturesViewModel (application: Application): AndroidViewModel(applicatio
     init {
         viewModelScope.launch {
             val user = loginRepository.userConnected.first()
-
+            //Yannick c'est correct ok :`)
+            _explorer.value = explorateurRepository.setCombatCreature(user.access_token, user.combatCreatureUUID)
         }
         viewModelScope.launch {
             val tokens = loginRepository.userConnected.first()
@@ -42,7 +43,7 @@ class CreaturesViewModel (application: Application): AndroidViewModel(applicatio
     fun setCombatCreature(combatCreature : Creature) {
         viewModelScope.launch {
             val tokens = loginRepository.userConnected.first()
-                _explorer.value = explorateurRepository.setCombatCreature(tokens.access_token, combatCreature)
+                _explorer.value = explorateurRepository.setCombatCreature(tokens.access_token, combatCreature.uuid)
         }
     }
 }

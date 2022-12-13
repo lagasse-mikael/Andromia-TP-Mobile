@@ -10,6 +10,7 @@ import com.babileux.andromia.domain.models.Vault
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import java.util.UUID
 
 
 class ExplorateurRepository {
@@ -42,9 +43,9 @@ class ExplorateurRepository {
         }
     }
 
-    suspend fun setCombatCreature(accessToken: String, combatCreature: Creature) : Resource<Explorateur> {
+    suspend fun setCombatCreature(accessToken: String, combatCreatureUUID: String) : Resource<Explorateur> {
         return try{
-            Resource.Success(explorateurDataSource.setCombatCreature(accessToken, combatCreature))
+            Resource.Success(explorateurDataSource.setCombatCreature(accessToken, combatCreatureUUID))
         } catch (ex:Exception) {
             Resource.Error(ex)
         }

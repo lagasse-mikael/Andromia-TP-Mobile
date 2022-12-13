@@ -30,7 +30,7 @@ class CreationCompteActivity : AppCompatActivity() {
                 }
                 is Resource.Success -> {
                     Toast.makeText(this, "Créer", Toast.LENGTH_LONG).show()
-                    viewModel.save(it.data!!.tokens, it.data.username, it.data.vault.inox, it.data!!.location)
+                    viewModel.save(it.data!!.tokens, it.data.username, it.data.vault.inox, it.data!!.location, it.data!!.combatCreature!!.uuid)
                     val mainActivityIntent = MainActivity.newIntent(this)
                     startActivity(mainActivityIntent)
                 }
@@ -47,13 +47,8 @@ class CreationCompteActivity : AppCompatActivity() {
                     Toast.makeText(this, "Ton mot de passe fit po ou ta un champs vide", Toast.LENGTH_SHORT).show()
                 }
                 false -> {
-
-
                     viewModel.createUser(binding.usernameField.text.toString(),
                         binding.passwordField.text.toString(), binding.emailField.text.toString())
-
-
-
                 }
             }
 

@@ -72,7 +72,6 @@ class CreaturesFragment : Fragment(R.layout.fragment_list_creatures) {
                 }
                 is Resource.Success -> {
                     creatureRecycleViewAdapter.updateCombatCreature(it.data!!.combatCreature!!)
-                    Toast.makeText(requireContext(), "Nouvelle créature de combat assignée", Toast.LENGTH_LONG).show()
                 }
             }
         }
