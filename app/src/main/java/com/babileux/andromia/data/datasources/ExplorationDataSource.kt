@@ -63,8 +63,8 @@ class ExplorationDataSource {
 
     suspend fun setFightResult(accessToken: String, exploration:Exploration): Exploration  {
         return withContext(Dispatchers.IO) {
-            val explorationInfos = Json.encodeToString(exploration)
-            val (request, response, result) = Constants.BaseURL.SETRESULT.httpPatch().jsonBody(explorationInfos).authentication()
+            val explorationInfos = Json {encodeDefaults = true } .encodeToString(exploration)
+            val (request, response, result) = Constants.BaseURL.SETRESULT.httpPost().jsonBody(explorationInfos).authentication()
                 .bearer(accessToken).responseJson()
             Log.i(request.toString(),"le request")
             when (result) {

@@ -46,6 +46,7 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
                 }
                 is Resource.Success -> {
                     Toast.makeText(requireContext(), "Combat effectué", Toast.LENGTH_LONG).show()
+                    binding.txtResultat.visibility = View.VISIBLE
                      if(it.data!!.userWon){
                          binding.txtResultat.text ="Vous avez Gagné"
                          binding.btnFight.text = "Retour"
@@ -55,8 +56,10 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
                          }
                      }
 
-                    else
-                        binding.txtResultat.text ="Vous avez perdu lol";
+                    else{
+                         binding.txtResultat.text ="Vous avez perdu lol";
+                     }
+
                 }
             }
         }
