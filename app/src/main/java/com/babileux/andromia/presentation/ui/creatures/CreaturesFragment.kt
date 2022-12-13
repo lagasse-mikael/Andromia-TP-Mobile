@@ -75,8 +75,6 @@ class CreaturesFragment : Fragment(R.layout.fragment_list_creatures) {
                 }
             }
         }
-
-
     }
 
     fun setCombatCreature(creature: Creature) {
