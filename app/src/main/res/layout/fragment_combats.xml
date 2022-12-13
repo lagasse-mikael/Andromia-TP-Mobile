@@ -32,8 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:textAlignment="center"
         android:text="TextView"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -110,13 +110,13 @@
         android:id="@+id/txtResultat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="115dp"
-        tools:text="VOUS AVEZ GAGNÉ/PERDU"
+        android:layout_marginBottom="8dp"
         android:textSize="28sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/btnFight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/creatureEnemyImg" />
-
+        tools:text="VOUS AVEZ GAGNÉ/PERDU" />
 
 
     //-----------------------
@@ -126,23 +126,21 @@
         android:id="@+id/imageViewCreatureUser"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="8dp"
         android:src="@drawable/tool_creature"
         app:layout_constraintBottom_toTopOf="@+id/txvVotreCreature"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnFight" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageViewLifePointUser"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/icon_life"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewPowerPointUser"
         app:layout_constraintEnd_toStartOf="@+id/imageViewCreatureUser"
-        app:layout_constraintTop_toBottomOf="@+id/btnFight" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewCreatureUser" />
 
     <ImageView
         android:id="@+id/imageViewPowerPointUser"
@@ -151,6 +149,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/icon_power"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewShieldPointUser"
         app:layout_constraintEnd_toStartOf="@+id/imageViewCreatureUser"
         app:layout_constraintTop_toBottomOf="@+id/imageViewLifePointUser" />
 
@@ -161,6 +160,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/icon_shield"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewSpeedPointUser"
         app:layout_constraintEnd_toStartOf="@+id/imageViewCreatureUser"
         app:layout_constraintTop_toBottomOf="@+id/imageViewPowerPointUser" />
 
@@ -171,6 +171,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/icon_speed"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewCreatureUser"
         app:layout_constraintEnd_toStartOf="@+id/imageViewCreatureUser"
         app:layout_constraintTop_toBottomOf="@+id/imageViewShieldPointUser" />
 
@@ -216,30 +217,27 @@
         app:layout_constraintTop_toTopOf="@+id/imageViewSpeedPointUser"
         app:layout_constraintVertical_bias="0.346" />
 
+
     <Button
         android:id="@+id/btnFight"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="Fight"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtResultat" />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txtResultat"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="@+id/txtResultat"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txvVotreCreature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
         android:layout_marginBottom="16dp"
         android:text="@string/votre_creature"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageViewCreatureUser"
-        app:layout_constraintStart_toStartOf="@+id/imageViewCreatureUser"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewCreatureUser" />
-
-
+        app:layout_constraintStart_toStartOf="@+id/imageViewCreatureUser" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

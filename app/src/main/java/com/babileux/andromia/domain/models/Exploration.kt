@@ -4,6 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Exploration(
+    val _id:String="",
     val explorationDate: String="",
     val destination: String = "",
     val affinity: String = "",
