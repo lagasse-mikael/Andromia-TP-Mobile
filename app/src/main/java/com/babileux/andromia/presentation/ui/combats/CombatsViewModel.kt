@@ -27,6 +27,12 @@ class CombatsViewModel (application: Application, private val exploration: Explo
     private val _exploration = MutableLiveData<Resource<Exploration>>()
     val lexploration: LiveData<Resource<Exploration>> get() = _exploration
 
+    private val _transaction = MutableLiveData<Resource<Explorateur>>()
+    val transaction: LiveData<Resource<Explorateur>> get() = _transaction
+
+    private val _capture = MutableLiveData<Resource<Explorateur>>()
+    val capture:  LiveData<Resource<Explorateur>> get() = _capture
+
     init {
         viewModelScope.launch{
             val tokens = loginRepository.userConnected.first()
@@ -51,6 +57,20 @@ class CombatsViewModel (application: Application, private val exploration: Explo
         viewModelScope.launch {
             val tokens = loginRepository.userConnected.first()
             _exploration.value = explorationRepository.setResult(tokens.access_token,exploration);
+        }
+    }
+
+    fun payUp(kernel: List<String>){
+        viewModelScope.launch {
+            val tokens = loginRepository.userConnected.first();
+            _transaction.value = explorateurRepository.payUp(tokens.access_token,kernel);
+        }
+    }
+
+    fun capture(foundCreatureUUID: String){
+        viewModelScope.launch {
+            val tokens = loginRepository.userConnected.first()
+            _capture.value = explorateurRepository.capture(tokens.access_token, foundCreatureUUID)
         }
     }
 }

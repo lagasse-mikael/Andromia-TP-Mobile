@@ -51,4 +51,20 @@ class ExplorateurRepository {
         }
     }
 
+    suspend fun payUp(accessToken: String,kernel:List<String>) : Resource<Explorateur> {
+        return try{
+            Resource.Success(explorateurDataSource.payUp(accessToken,kernel))
+        } catch (ex:Exception) {
+            Resource.Error(ex)
+        }
+    }
+
+    suspend fun capture(accessToken: String, foundCreatureUUID: String) : Resource<Explorateur> {
+        return try{
+            Resource.Success(explorateurDataSource.assignCreature(accessToken, foundCreatureUUID))
+        } catch (ex:Exception) {
+            Resource.Error(ex)
+        }
+    }
+
 }

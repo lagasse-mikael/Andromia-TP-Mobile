@@ -1,11 +1,7 @@
 package com.babileux.andromia.presentation.ui.combats
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.util.Log.DEBUG
-import android.util.Log.INFO
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
@@ -16,14 +12,9 @@ import androidx.navigation.fragment.navArgs
 import com.babileux.andromia.R
 import com.babileux.andromia.core.LoadingResource
 import com.babileux.andromia.core.Resource
-import com.babileux.andromia.core.notifyAllItemChanged
 import com.babileux.andromia.databinding.FragmentCombatsBinding
 import com.babileux.andromia.domain.models.Creature
-import com.babileux.andromia.presentation.MainActivity
-import com.babileux.andromia.presentation.ui.explorateur.ExplorateurFragment
-import com.babileux.andromia.presentation.ui.login.LoginActivity
 import com.bumptech.glide.Glide
-import kotlin.math.log
 
 class CombatsFragment : Fragment(R.layout.fragment_combats) {
     private val binding: FragmentCombatsBinding by viewBinding()
@@ -51,6 +42,7 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
                          binding.txtResultat.text ="Vous avez Gagné"
                          binding.btnFight.text = "Retour"
                          viewModel.setResult(args.exploration)
+                         viewModel.capture(args.exploration.creature!!.uuid);
                          binding.btnFight.setOnClickListener {
                              findNavController().navigate(R.id.navigation_explorations)
                          }
@@ -98,6 +90,7 @@ class CombatsFragment : Fragment(R.layout.fragment_combats) {
 
             //val buddy =
             if (enemy != null) {
+                viewModel.payUp(enemy.kernel)
                 viewModel.generateFight(buddy,enemy)
             }
         }

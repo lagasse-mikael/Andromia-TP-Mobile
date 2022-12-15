@@ -62,4 +62,35 @@ class ExplorateurDataSource {
             }
         }
     }
+
+    suspend fun payUp(accessToken: String,kernel: List<String>): Explorateur{
+        return withContext(Dispatchers.IO) {
+            //val combatCreature = Json.encodeToString(combatCreatureUUID)
+            val (_,_, result) = Constants.BaseURL.PAYUP.httpPost().jsonBody("{\"kernel\" :\"${kernel}\"}").authentication().bearer(accessToken).responseJson()
+            when(result) {
+                is Result.Success -> {
+                    return@withContext json.decodeFromString(result.value.content)
+                }
+                is Result.Failure -> {
+                    throw result.error.exception
+                }
+            }
+        }
+    }
+
+    suspend fun assignCreature(accessToken: String, foundCreatureUUID: String): Explorateur{
+        return withContext(Dispatchers.IO) {
+            //val combatCreature = Json.encodeToString(combatCreatureUUID)
+            val (_,_, result) = Constants.BaseURL.CAPTURE.httpPost().jsonBody("{\"creatureUUID\" :\"${foundCreatureUUID}\"}").authentication().bearer(accessToken).responseJson()
+            when(result) {
+                is Result.Success -> {
+                    return@withContext json.decodeFromString(result.value.content)
+                }
+                is Result.Failure -> {
+                    throw result.error.exception
+                }
+            }
+        }
+    }
+
 }
