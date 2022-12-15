@@ -59,6 +59,8 @@ class ExplorationsRecyclerViewAdapter(
                 } else {
                     nameCreature.text = "Aucune"
                     creatureEnemyImg.setImageResource(R.drawable.none)
+                    btnCombattre.isEnabled=false
+                    btnCombattre.isClickable=false
                 }
                 setNotUseElement(binding)
                 btnCombattre.setOnClickListener {
