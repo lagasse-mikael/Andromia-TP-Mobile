@@ -4,8 +4,8 @@ import com.babileux.andromia.domain.models.Exploration
 
 object Constants {
     object BaseURL {
-        private const val BASE_API = "http://10.0.2.2:4200" //Travaille en localhost
-        //private const val BASE_API = "https://api.andromia.science" // travail en prod
+        //private const val BASE_API = "http://10.0.2.2:4200" //Travaille en localhost
+        private const val BASE_API = "http://yannicko.us-3.evennode.com" // travail en prod
         const val EXPLORERS = "${BASE_API}/explorers"
         const val VAULT = "${BASE_API}/explorers/vault"
         const val LOGIN = "${BASE_API}/explorers/login"
